@@ -1,4 +1,7 @@
 modules:
     workshop-overview:
         name: Workshop Overview
-        exit_sign: Learning Center
+        exit_sign: Manual
+    exercises/b01-Manual:
+        name: Manual
+        exit_sign: Finish Workshop
