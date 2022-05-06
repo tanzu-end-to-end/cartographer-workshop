@@ -1,0 +1,39 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: Workshop
+metadata:
+  name: tap-overview
+spec:
+  title: TAP Overview
+  description: An introduction to the Tanzu Application Platform
+  vendor: vmware.com
+  difficulty: beginner
+  duration: 30m
+  url: https://github.com/tanzu-end-to-end/tap-workshop
+  content:
+    image: registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:a8870aa60b45495d298df5b65c69b3d7972608da4367bd6e69d6e392ac969dd4
+    files: "github.com/tanzu-end-to-end/cartographer-workshop"
+  session:
+    namespaces:
+      budget: custom
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      console:
+        enabled: true
+      editor:
+        enabled: true
+      registry:
+        enabled: true
+    objects:
+      - apiVersion: v1
+        kind: LimitRange
+        metadata:
+          name: resource-limits
+        spec:
+          limits:
+            - type: PersistentVolumeClaim
+              max:
+                storage: 10Gi
