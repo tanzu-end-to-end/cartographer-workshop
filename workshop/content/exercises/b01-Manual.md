@@ -35,13 +35,41 @@ file: /home/eduk8s/cartographer-concepts/layout-2/01_manual/image.yaml
 text: "${NEW_SOURCE}"
 ```
 
-```execute-1
-kubectl create secret docker-registry registry-credentials \
-        --docker-server=$REGISTRY_HOST \
-        --docker-username=$REGISTRY-USERNAME \
-        --docker-password=$REGISTRY-PASSWORD
+[//]: # (```execute-1)
 
-```
+[//]: # (kubectl create secret docker-registry registry-credentials \)
+
+[//]: # (        --docker-server=$REGISTRY_HOST \)
+
+[//]: # (        --docker-username=$REGISTRY-USERNAME \)
+
+[//]: # (        --docker-password=$REGISTRY-PASSWORD)
+
+[//]: # (```)
+
+[//]: # (```execute-1)
+
+[//]: # (cat <<EOF | kubectl apply -f -)
+
+[//]: # (apiVersion: v1)
+
+[//]: # (kind: ServiceAccount)
+
+[//]: # (metadata:)
+
+[//]: # (  name: default)
+
+[//]: # (secrets:)
+
+[//]: # (  - name: registry-credentials)
+
+[//]: # (imagePullSecrets:)
+
+[//]: # (  - name: registry-credentials)
+
+[//]: # (EOF)
+
+[//]: # (```)
 
 ```execute-1
 cat <<EOF | kubectl apply -f -
@@ -50,9 +78,9 @@ kind: ServiceAccount
 metadata:
   name: default
 secrets:
-  - name: registry-credentials
+  - name: learningcenter-registry-credentials
 imagePullSecrets:
-  - name: registry-credentials
+  - name: learningcenter-registry-credentials
 EOF
 ```
 
@@ -68,8 +96,9 @@ kubectl get imgs hello-world
 ```execute-1
 #kp build logs hello-world
 pod=$(kubectl get pod -o name)
-kubectl describe $pod
 kubectl get $pod -o json | jq ".spec.initContainers[].name" | xargs -L1 kubectl logs $pod -c
+echo
+kubectl describe $pod
 ```
 
 ```execute-1
