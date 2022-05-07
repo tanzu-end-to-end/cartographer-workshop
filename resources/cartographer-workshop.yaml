@@ -27,6 +27,8 @@ spec:
         enabled: true
       registry:
         enabled: true
+      docker:
+        enabled: true
     objects:
       - apiVersion: v1
         kind: LimitRange
