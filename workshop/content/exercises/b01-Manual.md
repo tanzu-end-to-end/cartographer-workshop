@@ -78,3 +78,15 @@ kubectl get imgs hello-world -o yaml | yq .status.latestImage
 file: /home/eduk8s/cartographer-concepts/layout-2/01_manual/app-deploy.yaml
 text: "${NEW_IMAGE}"
 ```
+
+```execute-1
+kubectl apply -f /home/eduk8s/cartographer-concepts/layout-2/01_manual/app-deploy.yaml
+```
+
+```execute-1
+kubectl get kservice hello-world
+```
+
+```execute-1
+curl http://hello-world.$SESSION_NAME.$INGRESS_DOMAIN
+```
