@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# This script is run after ~/.bash_profile
+# For more information, see:
+# https://docs.vmware.com/en/Tanzu-Application-Platform/1.1/tap/GUID-learning-center-workshop-content-workshop-runtime.html?hWord=N4IghgNiBcIC4FMBOBbAlgO0gWgK4Gdlt8ALBCCbBDANzSQHsMVq4QBfIA#terminal-user-shell-environment-3
+
+# Customize the prompt to make it easier on the eyes
+export PS1_OLD="$PS1"
+export PS1="\n\[\033[33m\]\w\$ \[\033[0m\]"
