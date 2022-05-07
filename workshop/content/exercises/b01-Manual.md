@@ -71,10 +71,6 @@ kubectl get imgs hello-world -o yaml | yq .status
 ```
 
 ```execute-1
-kubectl apply -f /home/eduk8s/cartographer-concepts/layout-2/01_manual/image.yaml
-```
-
-```execute-1
 kubectl get imgs hello-world -o yaml | yq .status.latestImage
 ```
 
