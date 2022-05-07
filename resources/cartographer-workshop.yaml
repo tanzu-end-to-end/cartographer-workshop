@@ -30,14 +30,15 @@ spec:
       docker:
         enabled: true
     objects:
-      - apiVersion: v1
-        kind: ServiceAccount
-        metadata:
-          name: default
-        secrets:
-          - name: learningcenter-registry-credentials
-        imagePullSecrets:
-          - name: learningcenter-registry-credentials
+#      - apiVersion: v1
+#        kind: ServiceAccount
+#        metadata:
+#          name: default
+#          namespace: $(session_namespace)
+#        secrets:
+#          - name: $(registry_secret)
+#        imagePullSecrets:
+#          - name: $(registry_secret)
       - apiVersion: v1
         kind: LimitRange
         metadata:
