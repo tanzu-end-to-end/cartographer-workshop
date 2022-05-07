@@ -41,6 +41,22 @@ kubectl create secret docker-registry registry-credentials \
         --docker-username=$REGISTRY-USERNAME \
         --docker-password=$REGISTRY-PASSWORD
 
+```
+
+```execute-1
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: default
+secrets:
+  - name: registry-credentials
+imagePullSecrets:
+  - name: registry-credentials
+EOF
+```
+
+```execute-1
 kubectl apply -f /home/eduk8s/cartographer-concepts/layout-2/01_manual/image.yaml
 ```
 
