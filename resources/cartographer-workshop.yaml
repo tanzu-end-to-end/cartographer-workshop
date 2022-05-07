@@ -45,7 +45,7 @@ spec:
         roleRef:
           apiGroup: rbac.authorization.k8s.io
           kind: ClusterRole
-          name: workshop-cluster-role
+          name: workshop-cluster-role-rw
         subjects:
           - kind: ServiceAccount
             namespace: $(workshop_namespace)
@@ -58,8 +58,21 @@ spec:
         roleRef:
           apiGroup: rbac.authorization.k8s.io
           kind: ClusterRole
-          name: workshop-cluster-role
+          name: workshop-cluster-role-rw
         subjects:
           - kind: ServiceAccount
             namespace: $(session_namespace)
             name: default
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: ClusterRoleBinding
+        metadata:
+          name: $(session_namespace)-workshop-ro-crb
+          namespace: $(session_namespace)
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: workshop-cluster-role-ro
+        subjects:
+          - kind: ServiceAccount
+            namespace: $(workshop_namespace)
+            name: $(service_account)

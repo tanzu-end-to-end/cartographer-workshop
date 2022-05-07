@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: workshop-cluster-role
+  name: workshop-cluster-role-rw
 rules:
   - apiGroups:
       - source.toolkit.fluxcd.io
@@ -25,6 +25,18 @@ rules:
       - patch
       - watch
       - get
-
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: workshop-cluster-role-ro
+rules:
+  - apiGroups:
+      - kpack.io
+    resources:
+      - clusterbuilders
+    verbs:
+      - list
+      - get
 
   
