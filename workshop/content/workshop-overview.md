@@ -10,7 +10,7 @@ echo $REGISTRY_PASSWORD | docker login -u $REGISTRY_USERNAME --password-stdin $R
 docker pull alpine
 docker tag alpine $REGISTRY_HOST/alpine
 docker push $REGISTRY_HOST/alpine
-skopeo list-tags docker://$REGISTRY_HOST/hello-world
+skopeo list-tags docker://$REGISTRY_HOST/alpine
 ```
 
 Expected output of last (skopeo) command:
