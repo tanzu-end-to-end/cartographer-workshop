@@ -43,7 +43,12 @@ kubectl get imgs hello-world
 ```
 
 ```execute-1
-kp build logs hello-world
+#kp build logs hello-world
+kubectl get pods
+```
+
+```execute-1
+skopeo list-tags docker://$REGISTRY_HOST/hello-world
 ```
 
 ```execute-1
