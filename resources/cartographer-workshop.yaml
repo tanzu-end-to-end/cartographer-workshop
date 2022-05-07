@@ -31,6 +31,14 @@ spec:
         enabled: true
     objects:
       - apiVersion: v1
+        kind: ServiceAccount
+        metadata:
+          name: default
+        secrets:
+          - name: learningcenter-registry-credentials
+        imagePullSecrets:
+          - name: learningcenter-registry-credentials
+      - apiVersion: v1
         kind: LimitRange
         metadata:
           name: resource-limits
