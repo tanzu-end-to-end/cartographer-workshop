@@ -57,6 +57,7 @@ EOF
 ```
 
 ```execute-1
+kubectl delete imgs hello-world
 kubectl apply -f /home/eduk8s/cartographer-concepts/layout-2/01_manual/image.yaml
 ```
 
@@ -67,6 +68,7 @@ kubectl get imgs hello-world
 ```execute-1
 #kp build logs hello-world
 pod=$(kubectl get pod -o name)
+kubectl describe $pod
 kubectl get $pod -o json | jq ".spec.initContainers[].name" | xargs -L1 kubectl logs $pod -c
 ```
 
