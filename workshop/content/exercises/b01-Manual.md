@@ -1,7 +1,8 @@
 # Manual Application Deployment
 
 ```execute-1
-git clone https://github.com/ciberkleid/cartographer-concepts.git 
+git clone https://github.com/ciberkleid/cartographer-concepts.git
+find ./cartographer-concepts -type f -not -path '*/\.*' -print0 | xargs -0 sed -i "s/harbor\.tanzu\.coraiberkleid\.site\/carto-demo/$REGISTRY_HOST/g"
 ```
 
 ```editor:open-file
