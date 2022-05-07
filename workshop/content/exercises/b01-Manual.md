@@ -66,7 +66,8 @@ kubectl get imgs hello-world
 
 ```execute-1
 #kp build logs hello-world
-kubectl get pods
+pod=$(kubectl get pod -o name)
+kubectl get $pod -o json | jq ".spec.initContainers[].name" | xargs -L1 kubectl logs $pod -c
 ```
 
 ```execute-1
