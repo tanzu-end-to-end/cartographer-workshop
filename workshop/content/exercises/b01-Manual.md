@@ -2,7 +2,7 @@
 
 ```execute-1
 git clone https://github.com/ciberkleid/cartographer-concepts.git && \
-find ./cartographer-concepts -type f -not -path '*/\.*' -print0 | xargs -0 sed -i "s/harbor\.tanzu\.coraiberkleid\.site\/carto-demo/$REGISTRY_HOST/g"
+find ./cartographer-concepts -type f -not -path '*/\.*' -print0 | xargs -0 sed -i "s/harbor\.tanzu\.coraiberkleid\.site\/carto-demo/http://myapp-{{ registry_host }}/g"
 ```
 
 ```editor:open-file
@@ -42,9 +42,9 @@ kind: ServiceAccount
 metadata:
   name: default
 secrets:
-  - name: $REGISTRY_SECRET
+  - name: {{ registry_secret }}
 imagePullSecrets:
-  - name: $REGISTRY_SECRET
+  - name: {{ registry_secret }}
 EOF
 ```
 
@@ -63,7 +63,7 @@ kubectl get $pod -o json | jq ".spec.initContainers[].name" | xargs -L1 kubectl 
 ```
 
 ```execute-1
-skopeo list-tags docker://$REGISTRY_HOST/hello-world
+skopeo list-tags docker://{{ registry_host }}/hello-world
 ```
 
 ```execute-1
@@ -88,5 +88,5 @@ kubectl get kservice hello-world
 ```
 
 ```execute-1
-curl http://hello-world.$SESSION_NAME.$INGRESS_DOMAIN
+curl http://hello-world.{{ session_namespace }}.{{ ingress_domain }}
 ```
