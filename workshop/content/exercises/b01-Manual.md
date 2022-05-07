@@ -2,6 +2,7 @@
 
 ```execute-1
 git clone https://github.com/ciberkleid/cartographer-concepts.git
+
 find ./cartographer-concepts -type f -not -path '*/\.*' -print0 | xargs -0 sed -i "s/harbor\.tanzu\.coraiberkleid\.site\/carto-demo/$REGISTRY_HOST/g"
 ```
 
@@ -35,6 +36,11 @@ text: "${NEW_SOURCE}"
 ```
 
 ```execute-1
+kubectl create secret docker-registry registry-credentials \
+        --docker-server=$REGISTRY_HOST \
+        --docker-username=$REGISTRY-USERNAME \
+        --docker-password=$REGISTRY-PASSWORD
+
 kubectl apply -f /home/eduk8s/cartographer-concepts/layout-2/01_manual/image.yaml
 ```
 
@@ -54,7 +60,6 @@ skopeo list-tags docker://$REGISTRY_HOST/hello-world
 ```execute-1
 kubectl get imgs hello-world -o yaml | yq .status
 ```
-
 
 ```execute-1
 kubectl apply -f /home/eduk8s/cartographer-concepts/layout-2/01_manual/image.yaml
