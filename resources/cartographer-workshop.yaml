@@ -12,7 +12,7 @@ spec:
   duration: 60m
   url: https://github.com/tanzu-end-to-end/cartographer-workshop
   content:
-    image: registry.tanzu.vmware.com/tanzu-application-platform/tap-packages@sha256:a8870aa60b45495d298df5b65c69b3d7972608da4367bd6e69d6e392ac969dd4
+    image: "harbor.tap.corby.cc/tanzu-e2e/inner-tap-workshop:latest"
     files: "github.com/tanzu-end-to-end/cartographer-workshop?ref=main"
   session:
     namespaces:
@@ -30,15 +30,6 @@ spec:
       docker:
         enabled: true
     objects:
-#      - apiVersion: v1
-#        kind: ServiceAccount
-#        metadata:
-#          name: default
-#          namespace: $(session_namespace)
-#        secrets:
-#          - name: $(registry_secret)
-#        imagePullSecrets:
-#          - name: $(registry_secret)
       - apiVersion: v1
         kind: LimitRange
         metadata:
