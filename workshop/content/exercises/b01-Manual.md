@@ -35,31 +35,15 @@ text: "${NEW_SOURCE}"
 ```
 
 ```execute-1
-# Putting this in the trainin-portal.yaml causes sessions to hang
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: default
-secrets:
-  - name: {{ registry_secret }}
-imagePullSecrets:
-  - name: {{ registry_secret }}
-EOF
-```
-
-```execute-1
 kubectl apply -f /home/eduk8s/cartographer-concepts/layout-2/01_manual/image.yaml
 ```
 
 ```execute-1
-kubectl get imgs hello-world
+kp build list
 ```
 
 ```execute-1
-#kp build logs hello-world
-pod=$(kubectl get pod -o name) && \
-kubectl get $pod -o json | jq ".spec.initContainers[].name" | xargs -L1 kubectl logs $pod -c
+kp build logs hello-world
 ```
 
 ```execute-1
@@ -84,9 +68,9 @@ kubectl apply -f /home/eduk8s/cartographer-concepts/layout-2/01_manual/app-deplo
 ```
 
 ```execute-1
-kubectl get kservice hello-world
+kn service list
 ```
 
 ```execute-1
-curl http://hello-world.{{ session_namespace }}.{{ ingress_domain }}
+curl http://hello-world-{{ session_namespace }}.{{ ingress_domain }}
 ```
