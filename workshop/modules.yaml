@@ -5,3 +5,6 @@ modules:
     exercises/b01-Manual:
         name: Manual
         exit_sign: Finish Workshop
+    exercises/b02-Templates:
+        name: Manual
+        exit_sign: Finish Workshop
