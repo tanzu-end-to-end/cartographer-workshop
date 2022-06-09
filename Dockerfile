@@ -10,11 +10,11 @@ RUN curl -L -o /usr/local/bin/kp https://github.com/vmware-tanzu/kpack-cli/relea
   chmod 755 /usr/local/bin/kp
 
 # Tanzu
-RUN curl -o /usr/local/bin/tanzu https://storage.googleapis.com/tanzu-cli/artifacts/core/latest/tanzu-core-linux_amd64 && \
-  chmod 755 /usr/local/bin/tanzu
-COPY plugins/apps-artifacts /tmp/apps-artifacts
-COPY plugins/apps-artifacts /tmp/apps-artifacts/
-RUN tanzu plugin install apps --local /tmp/apps-artifacts --version v0.5.1
+#RUN curl -o /usr/local/bin/tanzu https://storage.googleapis.com/tanzu-cli/artifacts/core/latest/tanzu-core-linux_amd64 && \
+#  chmod 755 /usr/local/bin/tanzu
+#COPY plugins/apps-artifacts /tmp/apps-artifacts
+#COPY plugins/apps-artifacts /tmp/apps-artifacts/
+#RUN tanzu plugin install apps --local /tmp/apps-artifacts --version v0.5.1
 # Knative
 RUN curl -L -o /usr/local/bin/kn https://github.com/knative/client/releases/download/knative-v1.4.0/kn-linux-amd64 && \
     chmod 755 /usr/local/bin/kn
