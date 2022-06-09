@@ -78,9 +78,15 @@ file: /home/eduk8s/intro/02_templated/source.yaml
 text: "      ref: $(workload.spec.source.git.ref)$\n"
 ```
 
+```editor:select-matching-text
+file: /home/eduk8s/intro/02_templated/source.yaml
+text: "hello-world"
+```
 
-
-
+```editor:replace-text-selection
+file: /home/eduk8s/intro/02_templated/source.yaml
+text: "$(workload.metadata.name)$"
+```
 
 
 
