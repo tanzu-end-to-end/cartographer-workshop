@@ -4,7 +4,7 @@ modules:
         exit_sign: Manual
     exercises/b01-Manual:
         name: Manual
-        exit_sign: Finish Workshop
+        exit_sign: Templates
     exercises/b02-Templates:
-        name: Manual
+        name: Templates
         exit_sign: Finish Workshop
