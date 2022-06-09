@@ -34,7 +34,7 @@ after: 1
 ```
 
 ```editor:open-file
-file: /home/eduk8s/intro/02_templated/source.yaml
+file: /home/eduk8s/intro/04_workload.yaml
 ```
 
 ```editor:select-matching-text
@@ -67,9 +67,19 @@ text: $(workload.spec.source.git.url)$
 
 ```editor:select-matching-text
 file: /home/eduk8s/intro/02_templated/source.yaml
-text: "ref: (.*)main"
+text: "ref:"
 isRegex: true
+before: 0
+after: 1
 ```
+
+```editor:replace-text-selection
+file: /home/eduk8s/intro/02_templated/source.yaml
+text: "      ref: $(workload.spec.source.git.ref)$"
+```
+
+
+
 
 
 
