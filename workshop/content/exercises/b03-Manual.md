@@ -54,5 +54,8 @@ Notice that the tag of the new image is in the field `.status.latestImage`.
 kubectl get imgs hello-world -o yaml | yq .status
 ```
 
-Copy this value to your clipboard (highlight it and click either Ctrl+C or Cmd+C).
-You will need it in the next step.
+Highlight this value in the terminal and copy it to the clipboard (Ctrl+C or Cmd+C, depending on your computer).
+You will need this value in the next step.
+```execute-1
+kubectl get imgs hello-world -o yaml | yq .status.latestImage
+```

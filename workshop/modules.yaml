@@ -25,4 +25,16 @@ modules:
         exit_sign: Next
     exercises/c03-Templates:
         name: Templates
+        exit_sign: Next
+    exercises/c04-Templates:
+        name: Templates
+        exit_sign: Next
+    exercises/c05-Templates:
+        name: Templates
+        exit_sign: Next
+    exercises/c06-Templates:
+        name: Templates
+        exit_sign: Next
+    exercises/d01-Gitops:
+        name: Templates
         exit_sign: Finish Workshop
