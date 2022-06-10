@@ -75,7 +75,7 @@ after: 0
 
 ```editor:replace-text-selection
 file: source.yaml
-text: "  urlPath: .status.artifact.url"
+text: "  urlPath: .status.artifact.url\n"
 ```
 
 Although it is not used in this example, you can also set a value for the other output field of a ClusterSourceTemplate, revision.
@@ -89,7 +89,7 @@ after: 0
 
 ```editor:replace-text-selection
 file: source.yaml
-text: "  revisionPath: .status.artifact.revision"
+text: "  revisionPath: .status.artifact.revision\n"
 ```
 
 Now, Cartographer can create the resource, monitor its status, and extract the desired value(s).
