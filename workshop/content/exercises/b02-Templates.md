@@ -135,7 +135,7 @@ text: |-
 
 Note specifically the application-specific source configuration.
 ```editor:select-matching-text
-file: /home/eduk8s/intro/04_workload.yaml
+file: workload.yaml
 text: "source"
 before: 0
 after: 4
@@ -154,7 +154,7 @@ text: "https://github.com/ciberkleid/hello-go"
 Replace this with a parameterizad value that maps to the Workload spec.
 ```editor:replace-text-selection
 file: source.yaml
-text: "$(workload.spec.source.git.url)$\n"
+text: "$(workload.spec.source.git.url)$"
 ```
 
 Replace the branch.
@@ -165,7 +165,7 @@ text: "main"
 
 ```editor:replace-text-selection
 file: source.yaml
-text: "$(workload.spec.source.git.ref)$\n"
+text: "$(workload.spec.source.git.ref)$"
 ```
 
 Finally, use the name of the Workload to ensure the GitRepository resource also has a unique name.
@@ -176,7 +176,7 @@ text: "hello-world"
 
 ```editor:replace-text-selection
 file: source.yaml
-text: "$(workload.spec.metadata.name)$\n"
+text: "$(workload.spec.metadata.name)$"
 ```
 
 Great! Your ClusterSourceTemplate can now be used to create GitRepository resources for any number of applications!
