@@ -37,25 +37,25 @@ Since you want Cartographer to create the GitRepository resource for you, copy t
 ```editor:select-matching-text
 file: source.yaml
 text: "template"
-start: 0
-stop: 1
+before: 0
+after: 0
 ```
 
 ```editor:replace-text-selection
 file: source.yaml
 text: |-
-    template:
-      apiVersion: source.toolkit.fluxcd.io/v1beta1
-      kind: GitRepository
-      metadata:
-        name: hello-world
-      spec:
-        interval: 1m0s
-        url: https://github.com/ciberkleid/hello-go
-        ref:
-          branch: main
-        gitImplementation: libgit2
-        ignore: ""
+      template:
+        apiVersion: source.toolkit.fluxcd.io/v1beta1
+        kind: GitRepository
+        metadata:
+          name: hello-world
+        spec:
+          interval: 1m0s
+          url: https://github.com/ciberkleid/hello-go
+          ref:
+            branch: main
+          gitImplementation: libgit2
+          ignore: ""
 ```
 
 By providing the GitRepository configuration to the ClusterSourceTemplate, you've given Cartographer the ability to create the resource and monitor its status.
