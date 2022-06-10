@@ -21,7 +21,7 @@ Create a new file with the basic configuration for a ClusterSourceTemplate.
 ```editor:insert-lines-before-line
 file: source.yaml
 line: 1
-text: |
+text: |-
     apiVersion: carto.run/v1alpha1
     kind: ClusterSourceTemplate
     metadata:
@@ -97,7 +97,7 @@ Create a Workload with application-specific details.
 ```editor:insert-lines-before-line
 file: workload.yaml
 line: 1
-text: |
+text: |-
     apiVersion: carto.run/v1alpha1
     kind: Workload
     metadata:
