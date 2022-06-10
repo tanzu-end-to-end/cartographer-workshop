@@ -37,7 +37,7 @@ Since you want Cartographer to create the GitRepository resource for you, copy t
 ```editor:insert-value-into-yaml
 file: source.yaml
 path: spec.template
-value: |-
+value:
     apiVersion: source.toolkit.fluxcd.io/v1beta1
     kind: GitRepository
     metadata:
@@ -48,7 +48,6 @@ value: |-
       ref:
         branch: main
       gitImplementation: libgit2
-      ignore: ""
 ```
 
 By providing the GitRepository configuration to the ClusterSourceTemplate, you've given Cartographer the ability to create the resource and monitor its status.
