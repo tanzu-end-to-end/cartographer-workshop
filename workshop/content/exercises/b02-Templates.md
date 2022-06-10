@@ -154,7 +154,7 @@ value: $(workload.metadata.name)$
 
 Great! Your ClusterSourceTemplate can now be used to create GitRepository resources for any number of applications!
 
-
+## ClusterImageTemplate
 
 ```execute-1
 kubectl apply -f /home/eduk8s/intro/02_templated/source.yaml
@@ -206,7 +206,7 @@ text: "url: $(sources.source.url)$"
 kubectl apply -f /home/eduk8s/intro/02_templated/image.yaml
 ```
 
-Deploy Template
+## ClusterTemplate
 
 ```editor:open-file
 file: /home/eduk8s/intro/01_manual/app-deploy.yaml
