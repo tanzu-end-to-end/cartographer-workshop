@@ -68,24 +68,28 @@ In order for Cartographer to extract the same value automatically, you need to p
 
 ```editor:select-matching-text
 file: source.yaml
-text: "urlPath:"
+text: "urlPath"
+before: 0
+after: 0
 ```
 
 ```editor:replace-text-selection
 file: source.yaml
-text: "spec.urlPath: .status.artifact.url"
+text: "  urlPath: .status.artifact.url"
 ```
 
 Although it is not used in this example, you can also set a value for the other output field of a ClusterSourceTemplate, revision.
 
 ```editor:select-matching-text
 file: source.yaml
-text: "revisionPath:"
+text: "revisionPath"
+before: 0
+after: 0
 ```
 
 ```editor:replace-text-selection
 file: source.yaml
-text: "spec.revisionPath: .status.artifact.revision"
+text: "  revisionPath: .status.artifact.revision"
 ```
 
 Now, Cartographer can create the resource, monitor its status, and extract the desired value(s).
