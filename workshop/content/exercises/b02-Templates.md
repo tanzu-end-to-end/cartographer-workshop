@@ -34,10 +34,17 @@ text: |-
 
 The _template_ field can contain any arbitrary YAML configuration that you want Cartographer to submit to the Kubernetes API Server.
 Since you want Cartographer to create the GitRepository resource for you, copy the configuration that you applied manually in the previous step into this file.
-```editor:insert-value-into-yaml
+```editor:select-matching-text
 file: source.yaml
-path: spec.template
-value:
+text: "template:"
+start: 0
+stop: 0
+```
+
+```editor:replace-text-selection
+file: source.yaml
+text: |-
+  template:
     apiVersion: source.toolkit.fluxcd.io/v1beta1
     kind: GitRepository
     metadata:
@@ -48,6 +55,7 @@ value:
       ref:
         branch: main
       gitImplementation: libgit2
+      ignore: ""
 ```
 
 By providing the GitRepository configuration to the ClusterSourceTemplate, you've given Cartographer the ability to create the resource and monitor its status.
