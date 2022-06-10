@@ -68,7 +68,7 @@ In order for Cartographer to extract the same value automatically, you need to p
 
 ```editor:select-matching-text
 file: source.yaml
-text: "spec.urlPath"
+text: "urlPath"
 ```
 
 ```editor:replace-text-selection
@@ -80,7 +80,7 @@ Although it is not used in this example, you can also set a value for the other 
 
 ```editor:select-matching-text
 file: source.yaml
-text: "spec.revisionPath"
+text: "revisionPath"
 ```
 
 ```editor:replace-text-selection
