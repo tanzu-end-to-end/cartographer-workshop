@@ -66,17 +66,26 @@ It was found under `.status.artifact.url`.
 
 In order for Cartographer to extract the same value automatically, you need to provide the **path** to the value.
 
-```editor:insert-value-into-yaml
+```editor:select-matching-text
 file: source.yaml
-path: spec.urlPath
-value: .status.artifact.url
+text: "spec.urlPath"
+```
+
+```editor:replace-text-selection
+file: source.yaml
+text: "spec.urlPath: .status.artifact.url"
 ```
 
 Although it is not used in this example, you can also set a value for the other output field of a ClusterSourceTemplate, revision.
-```editor:insert-value-into-yaml
+
+```editor:select-matching-text
 file: source.yaml
-path: spec.revisionPath
-value: .status.artifact.revision
+text: "spec.revisionPath"
+```
+
+```editor:replace-text-selection
+file: source.yaml
+text: "spec.revisionPath: .status.artifact.revision"
 ```
 
 Now, Cartographer can create the resource, monitor its status, and extract the desired value(s).
