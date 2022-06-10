@@ -153,3 +153,86 @@ value: $(workload.metadata.name)$
 ```
 
 Great! Your ClusterSourceTemplate can now be used to create GitRepository resources for any number of applications!
+
+
+
+```execute-1
+kubectl apply -f /home/eduk8s/intro/02_templated/source.yaml
+```
+
+Image Template
+
+```editor:open-file
+file: /home/eduk8s/intro/01_manual/image.yaml
+```
+
+```editor:open-file
+file: /home/eduk8s/intro/02_templated/image.yaml
+```
+
+```editor:select-matching-text
+file: /home/eduk8s/intro/02_templated/image.yaml
+text: "template"
+before: 0
+after: 17
+```
+
+```editor:select-matching-text
+file: /home/eduk8s/intro/02_templated/image.yaml
+text: "imagePath"
+before: 0
+after: 0
+```
+
+```editor:select-matching-text
+file: /home/eduk8s/intro/02_templated/image.yaml
+text: "apiVersion"
+before: 0
+after: 1
+```
+
+```editor:select-matching-text
+file: /home/eduk8s/intro/02_templated/image.yaml
+text: "url: (.*)"
+isRegex: true
+```
+
+```editor:replace-text-selection
+file: /home/eduk8s/intro/02_templated/image.yaml
+text: "url: $(sources.source.url)$"
+```
+
+```execute-1
+kubectl apply -f /home/eduk8s/intro/02_templated/image.yaml
+```
+
+Deploy Template
+
+```editor:open-file
+file: /home/eduk8s/intro/01_manual/app-deploy.yaml
+```
+
+```editor:open-file
+file: /home/eduk8s/intro/02_templated/app-deploy.yaml
+```
+
+```editor:select-matching-text
+file: /home/eduk8s/intro/02_templated/app-deploy.yaml
+text: "template"
+before: 0
+after: 53
+```
+
+```editor:select-matching-text
+file: /home/eduk8s/intro/02_templated/app-deploy.yaml
+text: "imagePath"
+before: 0
+after: 0
+```
+
+```editor:select-matching-text
+file: /home/eduk8s/intro/02_templated/app-deploy.yaml
+text: "apiVersion"
+before: 0
+after: 1
+```
