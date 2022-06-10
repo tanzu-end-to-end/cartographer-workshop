@@ -94,14 +94,14 @@ text: "  revisionPath: .status.artifact.revision\n"
 
 Now, Cartographer can create the resource, monitor its status, and extract the desired value(s).
 
-You'll need to wrap the kpack Image and Knative Serving service resources in Cartographer templates as well, but before you do that, let's explore how a template can be used for many different applications.
+You'll need to wrap the kpack Image and Knative Serving Service resources in Cartographer templates as well, but before you do that, let's explore how a template can be used for many different applications.
 
 ## Workload
 
 Currently, the ClusterSourceTemplate you have will stamp out a single resource with a hard-coded git url.
 ```editor:select-matching-text
 file: source.yaml
-text: "url"
+text: "      url:"
 before: 0
 after: 2
 ```
@@ -152,24 +152,31 @@ text: "https://github.com/ciberkleid/hello-go"
 ```
 
 Replace this with a parameterizad value that maps to the Workload spec.
-```editor:insert-value-into-yaml
+```editor:replace-text-selection
 file: source.yaml
-path: spec.template.spec.url
-value: $(workload.spec.source.git.url)$
+text: "$(workload.spec.source.git.url)$\n"
 ```
 
 Replace the branch.
-```editor:insert-value-into-yaml
+```editor:select-matching-text
 file: source.yaml
-path: spec.template.spec.ref
-value: $(workload.spec.source.git.ref)$
+text: "main"
+```
+
+```editor:replace-text-selection
+file: source.yaml
+text: "$(workload.spec.source.git.ref)$\n"
 ```
 
 Finally, use the name of the Workload to ensure the GitRepository resource also has a unique name.
-```editor:insert-value-into-yaml
+```editor:select-matching-text
 file: source.yaml
-path: spec.template.metadata.name
-value: $(workload.metadata.name)$
+text: "hello-world"
+```
+
+```editor:replace-text-selection
+file: source.yaml
+text: "$(workload.spec.metadata.name)$\n"
 ```
 
 Great! Your ClusterSourceTemplate can now be used to create GitRepository resources for any number of applications!
