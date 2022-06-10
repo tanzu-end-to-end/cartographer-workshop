@@ -44,7 +44,7 @@ after: 0
 ```editor:replace-text-selection
 file: source.yaml
 text: |-
-      template:
+        template:
           apiVersion: source.toolkit.fluxcd.io/v1beta1
           kind: GitRepository
           metadata:
