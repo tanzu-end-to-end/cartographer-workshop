@@ -7,7 +7,6 @@ Consider a simple Path to Production consisting of three steps:
 2. Use the source code to produce a container image
 3. Deploy the image and start the application
 
-
 ##### The plan
 
 Now, you could write a script or a fancy little custom program to carry out each of these steps, but if you're going to run your Path to Production on Kubernetes, you don't have to! 
@@ -17,6 +16,8 @@ For this workshop, you'll be working with:
 1. FluxCD Source Controller - for downloading source code from git
 2. kpack - for building and publishing container images
 3. Knative Serving - for running applications
+
+![img.png](images/manual.png)
 
 ##### Halfway there!
 By simply using these tools, you're well on your way to establishing a working Path to Production. Woohoo!
@@ -153,10 +154,10 @@ curl http://hello-world-{{ session_namespace }}.{{ ingress_domain }}
 At this point, you should be able to see that by simply leveraging Kubernetes and its rich ecosystem, you can easily establish some of the individual steps that make up a Path to Production.
 
 However, there are some coordination and integration steps that still need to be done manually, specifically:
-1. Understand the overall order and workflow for a set of steps/resources
-2. Create instances of Path to Prod resources for each developer application
-3. Monitor the status of these instances and detect when they have changed
-4. Extract specific values from the resource statuses
-5. Inject these values into the next resource in the Path
+1. Understand the overall **order and workflow** for a set of steps/resources
+2. **Create** instances of Path to Prod resources for each developer application
+3. **Monitor** the status of these instances and detect when they have changed
+4. **Extract** specific values from the resource statuses
+5. **Inject** these values into the next resource in the Path
 
 Next, you'll learn how to automate these steps using Cartographer.
