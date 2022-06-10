@@ -1,10 +1,28 @@
 modules:
     workshop-overview:
         name: Workshop Overview
-        exit_sign: Manual
+        exit_sign: Start
     exercises/b01-Manual:
         name: Manual
-        exit_sign: Templates
-    exercises/b02-Templates:
+        exit_sign: Next
+    exercises/b02-Manual:
+        name: Manual
+        exit_sign: Next
+    exercises/b03-Manual:
+        name: Manual
+        exit_sign: Next
+    exercises/b04-Manual:
+        name: Manual
+        exit_sign: Next
+    exercises/b05-Manual:
+        name: Manual
+        exit_sign: Next
+    exercises/c01-Templates:
+        name: Templates
+        exit_sign: Next
+    exercises/c02-Templates:
+        name: Templates
+        exit_sign: Next
+    exercises/c03-Templates:
         name: Templates
         exit_sign: Finish Workshop

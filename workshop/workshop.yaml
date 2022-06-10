@@ -4,4 +4,10 @@ modules:
     activate:
     - workshop-overview
     - exercises/b01-Manual
-    - exercises/b02-Templates
+    - exercises/b02-Manual
+    - exercises/b03-Manual
+    - exercises/b04-Manual
+    - exercises/b05-Manual
+    - exercises/c01-Templates
+    - exercises/c02-Templates
+    - exercises/c03-Templates
