@@ -13,7 +13,7 @@ List the available types of templates.
 kubectl api-resources | grep carto | grep template
 ```
 
-##### ClusterSourceTemplate
+## ClusterSourceTemplate
 
 For the FluxCD Source Controller activity—the first resource in the workflow—you will need a ClusterSourceTemplate. This template takes arbitrary YAML as input and outputs two values: _url_ and _revision_.
 
