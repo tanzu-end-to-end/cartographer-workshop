@@ -2,6 +2,9 @@ modules:
     workshop-overview:
         name: Workshop Overview
         exit_sign: Start
+    exercises/a01-Intro:
+        name: Intro
+        exit_sign: Next
     exercises/b01-Manual:
         name: Manual
         exit_sign: Next

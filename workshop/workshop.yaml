@@ -3,6 +3,7 @@ name: Introduction to Supply Chain Choreography with Carographer
 modules:
     activate:
     - workshop-overview
+    - exercises/a01-Intro
     - exercises/b01-Manual
     - exercises/b02-Manual
     - exercises/b03-Manual
