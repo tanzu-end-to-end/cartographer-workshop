@@ -17,7 +17,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterRunTemplate
 metadata:
-  name: #@ "tekton-taskrun-" + data.values.session_name
+  name: #@ "tekton-taskrun-" + data.values.session_namespace
 spec:
   template:
     apiVersion: tekton.dev/v1beta1

@@ -3,7 +3,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterImageTemplate
 metadata:
-  name: #@ "image-" + data.values.session_name
+  name: #@ "image-" + data.values.session_namespace
 spec:
   params:
     - name: image_prefix

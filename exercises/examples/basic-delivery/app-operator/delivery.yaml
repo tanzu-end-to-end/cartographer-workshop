@@ -17,10 +17,10 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterDelivery
 metadata:
-  name: #@ "deliver-" + data.values.session_name
+  name: #@ "deliver-" + data.values.session_namespace
 spec:
   selector:
-    app.tanzu.vmware.com/workload-type: #@ "deliver-" + data.values.session_name
+    app.tanzu.vmware.com/workload-type: #@ "deliver-" + data.values.session_namespace
 
   #
   #
@@ -30,11 +30,11 @@ spec:
     - name: source-provider
       templateRef:
         kind: ClusterSourceTemplate
-        name: #@ "gitops-source-" + data.values.session_name
+        name: #@ "gitops-source-" + data.values.session_namespace
 
     - name: deployer
       templateRef:
         kind: ClusterDeploymentTemplate
-        name: #@ "app-deploy-" + data.values.session_name
+        name: #@ "app-deploy-" + data.values.session_namespace
       deployment:
         resource: source-provider

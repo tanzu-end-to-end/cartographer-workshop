@@ -17,7 +17,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: ClusterTask
 metadata:
-  name: #@ "git-writer-" + data.values.session_name
+  name: #@ "git-writer-" + data.values.session_namespace
 spec:
   description: |-
     A task that writes a given set of files (provided as a json base64-encoded)

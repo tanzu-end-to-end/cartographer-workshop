@@ -17,7 +17,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterSourceTemplate
 metadata:
-  name: #@ "gitops-source-" + data.values.session_name
+  name: #@ "gitops-source-" + data.values.session_namespace
 spec:
   urlPath: .status.artifact.url
   revisionPath: .status.artifact.revision

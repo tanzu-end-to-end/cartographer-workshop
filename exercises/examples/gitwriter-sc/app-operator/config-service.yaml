@@ -17,7 +17,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterConfigTemplate
 metadata:
-  name: #@ "app-config-" + data.values.session_name
+  name: #@ "app-config-" + data.values.session_namespace
 spec:
   configPath: .data.manifest
 

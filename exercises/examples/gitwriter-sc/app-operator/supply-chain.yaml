@@ -17,10 +17,10 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterSupplyChain
 metadata:
-  name: #@ "supply-chain-" + data.values.session_name
+  name: #@ "supply-chain-" + data.values.session_namespace
 spec:
   selector:
-    app.tanzu.vmware.com/workload-type: #@ "web-" + data.values.session_name
+    app.tanzu.vmware.com/workload-type: #@ "web-" + data.values.session_namespace
 
   #
   #
@@ -32,13 +32,13 @@ spec:
     - name: source-provider
       templateRef:
         kind: ClusterSourceTemplate
-        name: #@ "source-" + data.values.session_name
+        name: #@ "source-" + data.values.session_namespace
 
     # kpack/Image
     - name: image-builder
       templateRef:
         kind: ClusterImageTemplate
-        name: #@ "image-" + data.values.session_name
+        name: #@ "image-" + data.values.session_namespace
       params:
         - name: image_prefix
           value: #@ data.values.image_prefix
@@ -50,7 +50,7 @@ spec:
 #    - name: deployer
 #      templateRef:
 #        kind: ClusterTemplate
-#        name: #@ "app-deploy-" + data.values.session_name
+#        name: #@ "app-deploy-" + data.values.session_namespace
 #      images:
 #        - resource: image-builder
 #          name: image
@@ -59,7 +59,7 @@ spec:
     - name: config-provider
       templateRef:
         kind: ClusterConfigTemplate
-        name:  #@ "app-config-" + data.values.session_name
+        name:  #@ "app-config-" + data.values.session_namespace
       images:
         - resource: image-builder
           name: image
@@ -68,7 +68,7 @@ spec:
     - name: git-writer
       templateRef:
         kind: ClusterTemplate
-        name:  #@ "git-writer-" + data.values.session_name
+        name:  #@ "git-writer-" + data.values.session_namespace
       configs:
         - resource: config-provider
           name: data

@@ -7,7 +7,7 @@ set +e
 
 kubectl create secret generic git-server \
   --from-literal=username=git-user \
-  --from-literal=password=$SESSION_NAME
+  --from-literal=password=$SESSION_NAMESPACE
 
 cat <<'EOF' | kubectl create -f -
 apiVersion: ops.tips/v1alpha1

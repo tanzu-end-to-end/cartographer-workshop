@@ -3,7 +3,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterTemplate
 metadata:
-  name: #@ "app-deploy-" + data.values.session_name
+  name: #@ "app-deploy-" + data.values.session_namespace
 spec:
   template:
     apiVersion: kappctrl.k14s.io/v1alpha1

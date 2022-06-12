@@ -15,7 +15,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterDeploymentTemplate
 metadata:
-  name: #@ "app-deploy-" + data.values.session_name
+  name: #@ "app-deploy-" + data.values.session_namespace
 spec:
 
   observedCompletion:

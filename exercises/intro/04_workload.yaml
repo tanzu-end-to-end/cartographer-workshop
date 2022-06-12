@@ -5,7 +5,7 @@ kind: Workload
 metadata:
   name: hello-world
   labels:
-    app.tanzu.vmware.com/workload-type: #@ "web-" + data.values.session_name
+    app.tanzu.vmware.com/workload-type: #@ "web-" + data.values.session_namespace
 spec:
   serviceAccountName: default
   source:

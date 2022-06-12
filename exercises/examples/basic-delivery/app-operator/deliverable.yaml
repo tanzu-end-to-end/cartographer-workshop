@@ -19,7 +19,7 @@ kind: Deliverable
 metadata:
   name: gitops
   labels:
-    app.tanzu.vmware.com/workload-type: #@ "deliver-" + data.values.session_name
+    app.tanzu.vmware.com/workload-type: #@ "deliver-" + data.values.session_namespace
 spec:
   serviceAccountName: #@ data.values.service_account_name
   source:
