@@ -161,11 +161,13 @@ Replace the branch.
 ```editor:select-matching-text
 file: /home/eduk8s/exercises/source.yaml
 text: "main"
+before: 1
+after: 0
 ```
 
 ```editor:replace-text-selection
 file: /home/eduk8s/exercises/source.yaml
-text: "$(workload.spec.source.git.ref)$"
+text: "          ref: $(workload.spec.source.git.ref)$"
 ```
 
 Finally, use the name of the Workload to ensure the GitRepository resource also has a unique name.
