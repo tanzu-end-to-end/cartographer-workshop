@@ -115,7 +115,7 @@ This provides a clear separation of concerns between developers and operators an
 
 Create a Workload with application-specific details.
 ```editor:insert-lines-before-line
-file: workload.yaml
+file: /home/eduk8s/exercises/workload.yaml
 line: 1
 text: |-
     apiVersion: carto.run/v1alpha1
@@ -135,7 +135,7 @@ text: |-
 
 Note specifically the application-specific source configuration.
 ```editor:select-matching-text
-file: workload.yaml
+file: /home/eduk8s/exercises/workload.yaml
 text: "source"
 before: 0
 after: 4
