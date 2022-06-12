@@ -9,6 +9,7 @@ rules:
       - kapp.k14s.io/v1alpha1
       - kappctrl.k14s.io
       - serving.knative.dev
+      - ops.tips
     resources:
       - gitrepositories
       - images
@@ -16,6 +17,7 @@ rules:
       - apps
       - services
       - runnables
+      - gitservers
     verbs:
       - list
       - create
@@ -41,7 +43,6 @@ rules:
     resources:
       - builds
       - clusterbuilders
-      - customresourcedefinitions
     verbs:
       - list
       - get
