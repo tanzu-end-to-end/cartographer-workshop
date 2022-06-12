@@ -38,6 +38,6 @@ modules:
     exercises/c06-Templates:
         name: Templates
         exit_sign: Next
-    exercises/d01-Gitops:
+    exercises/d01-GitOps:
         name: GitOps
         exit_sign: Finish Workshop
