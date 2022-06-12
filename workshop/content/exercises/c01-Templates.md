@@ -123,7 +123,7 @@ text: |-
     metadata:
       name: hello-world
       labels:
-        app.tanzu.vmware.com/workload-type: web-{{session_name}}
+        app.tanzu.vmware.com/workload-type: web-{{session_namespace}}
     spec:
       serviceAccountName: default
       source:
