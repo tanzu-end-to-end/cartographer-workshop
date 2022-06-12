@@ -167,7 +167,7 @@ after: 0
 
 ```editor:replace-text-selection
 file: /home/eduk8s/exercises/source.yaml
-text: "          ref: $(workload.spec.source.git.ref)$"
+text: "      ref: $(workload.spec.source.git.ref)$\n"
 ```
 
 Finally, use the name of the Workload to ensure the GitRepository resource also has a unique name.
