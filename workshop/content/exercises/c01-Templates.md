@@ -25,7 +25,7 @@ text: |-
     apiVersion: carto.run/v1alpha1
     kind: ClusterSourceTemplate
     metadata:
-      name: source-{{session_name}}
+      name: source-{{session_namespace}}
     spec:
       urlPath: 
       revisionPath: 
