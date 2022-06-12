@@ -1,0 +1,16 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hello-world
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      serviceAccountName: default
+      containers:
+        - name: workload
+          image: ${NEW_IMAGE}
+          securityContext:
+            runAsUser: 1000

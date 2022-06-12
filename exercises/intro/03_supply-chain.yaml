@@ -1,0 +1,34 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: carto.run/v1alpha1
+kind: ClusterSupplyChain
+metadata:
+  name: #@ "supply-chain-" + data.values.session_name
+spec:
+  selector:
+    app.tanzu.vmware.com/workload-type: #@ "web-" + data.values.session_name
+
+  resources:
+    # fluxcd/GitRepository
+    - name: source-provider
+      templateRef:
+        kind: ClusterSourceTemplate
+        name: #@ "source-" + data.values.session_name
+
+    # kpack/Image
+    - name: image-builder
+      templateRef:
+        kind: ClusterImageTemplate
+        name: #@ "image-" + data.values.session_name
+      sources:
+        - resource: source-provider
+          name: source
+
+    # kapp-ctrl/App + knative-serving/Service
+    - name: deployer
+      templateRef:
+        kind: ClusterTemplate
+        name: #@ "app-deploy-" + data.values.session_name
+      images:
+        - resource: image-builder
+          name: image

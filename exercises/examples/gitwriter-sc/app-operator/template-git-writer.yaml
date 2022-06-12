@@ -1,0 +1,60 @@
+# Copyright 2021 VMware
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#@ load("@ytt:data", "data")
+---
+apiVersion: carto.run/v1alpha1
+kind: ClusterTemplate
+metadata:
+  name: #@ "git-writer-" + data.values.session_name
+spec:
+  params:
+    - name: git_repository
+      default: #@ data.values.git_repository
+    - name: git_branch
+      default: #@ data.values.git_branch
+    - name: git_user_name
+      default: #@ data.values.git_user_name
+    - name: git_user_email
+      default: #@ data.values.git_user_email
+    - name: git_commit_message
+      default: #@ data.values.git_commit_message
+  template:
+    apiVersion: carto.run/v1alpha1
+    kind: Runnable
+    metadata:
+      name: $(workload.metadata.name)$-git-writer
+    spec:
+      serviceAccountName: #@ data.values.service_account_name
+      runTemplateRef:
+        name: tekton-taskrun
+
+      inputs:
+        serviceAccount: #@ data.values.service_account_name
+        taskRef:
+          kind: ClusterTask
+          name: git-writer
+        params:
+          - name: git_repository
+            value: $(params.git_repository)$
+          - name: git_branch
+            value: $(params.git_branch)$
+          - name: git_user_name
+            value: $(params.git_user_name)$
+          - name: git_user_email
+            value: $(params.git_user_email)$
+          - name: git_commit_message
+            value: $(params.git_commit_message)$
+          - name: git_files
+            value: $(config)$
