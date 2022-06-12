@@ -37,9 +37,11 @@ metadata:
 rules:
   - apiGroups:
       - kpack.io
+      - apiextensions.k8s.io
     resources:
       - builds
       - clusterbuilders
+      - customresourcedefinitions
     verbs:
       - list
       - get

@@ -39,5 +39,5 @@ modules:
         name: Templates
         exit_sign: Next
     exercises/d01-Gitops:
-        name: Templates
+        name: GitOps
         exit_sign: Finish Workshop

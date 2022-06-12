@@ -20,7 +20,7 @@ In this workshop, you'll learn all about Supply Chain Choreography through hands
 
 # Agenda
 
-You will start by manually executing a simple path to production on Kubernetes, to understand the basic mechanics of operating a workflow using Kubernetes-native resources and to and identify opportunities for automation.
+You will start by manually executing a simple path to production on Kubernetes, to understand the basic mechanics of operating a workflow using Kubernetes-native resources and to identify opportunities for automation.
 
 Next, you will introduce Cartographer to choreograph the workflow automatically.
 You'll explore both the developer and operator experiences for using Cartographer.
