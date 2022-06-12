@@ -16,3 +16,4 @@ modules:
     - exercises/c05-Templates
     - exercises/c06-Templates
     - exercises/d01-GitOps
+    - exercises/d02-GitOps
