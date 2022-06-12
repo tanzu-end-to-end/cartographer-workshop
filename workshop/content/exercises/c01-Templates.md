@@ -19,7 +19,7 @@ For the FluxCD Source Controller activityâ€”the first resource in the workflowâ€
 
 Create a new file with the basic configuration for a ClusterSourceTemplate.
 ```editor:insert-lines-before-line
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 line: 1
 text: |-
     apiVersion: carto.run/v1alpha1
@@ -35,14 +35,14 @@ text: |-
 The _template_ field can contain any arbitrary YAML configuration that you want Cartographer to submit to the Kubernetes API Server.
 Since you want Cartographer to create the GitRepository resource for you, copy the configuration that you applied manually in the previous step into this file.
 ```editor:select-matching-text
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "template"
 before: 0
 after: 0
 ```
 
 ```editor:replace-text-selection
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: |2
     template:
       apiVersion: source.toolkit.fluxcd.io/v1beta1
@@ -67,28 +67,28 @@ It was found under `.status.artifact.url`.
 In order for Cartographer to extract the same value automatically, you need to provide the **path** to the value.
 
 ```editor:select-matching-text
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "urlPath"
 before: 0
 after: 0
 ```
 
 ```editor:replace-text-selection
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "  urlPath: .status.artifact.url\n"
 ```
 
 Although it is not used in this example, you can also set a value for the other output field of a ClusterSourceTemplate, revision.
 
 ```editor:select-matching-text
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "revisionPath"
 before: 0
 after: 0
 ```
 
 ```editor:replace-text-selection
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "  revisionPath: .status.artifact.revision\n"
 ```
 
@@ -100,7 +100,7 @@ You'll need to wrap the kpack Image and Knative Serving Service resources in Car
 
 Currently, the ClusterSourceTemplate you have will stamp out a single resource with a hard-coded git url.
 ```editor:select-matching-text
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "      url:"
 before: 0
 after: 2
@@ -147,35 +147,35 @@ Now that you have a Workload context for developer-provided values, you can upda
 
 Find the hard-coded git url in the current ClusterSourceTemplate configuration.
 ```editor:select-matching-text
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "https://github.com/ciberkleid/hello-go"
 ```
 
 Replace this with a parameterizad value that maps to the Workload spec.
 ```editor:replace-text-selection
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "$(workload.spec.source.git.url)$"
 ```
 
 Replace the branch.
 ```editor:select-matching-text
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "main"
 ```
 
 ```editor:replace-text-selection
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "$(workload.spec.source.git.ref)$"
 ```
 
 Finally, use the name of the Workload to ensure the GitRepository resource also has a unique name.
 ```editor:select-matching-text
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "hello-world"
 ```
 
 ```editor:replace-text-selection
-file: source.yaml
+file: /home/eduk8s/exercises/source.yaml
 text: "$(workload.spec.metadata.name)$"
 ```
 
