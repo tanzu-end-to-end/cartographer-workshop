@@ -176,7 +176,7 @@ text: "hello-world"
 
 ```editor:replace-text-selection
 file: /home/eduk8s/exercises/source.yaml
-text: "$(workload.spec.metadata.name)$"
+text: "$(workload.metadata.name)$"
 ```
 
 Great! Your ClusterSourceTemplate can now be used to create GitRepository resources for any number of applications!
