@@ -4,11 +4,11 @@ modules:
     activate:
     - workshop-overview
     - exercises/a01-Intro
-    - exercises/b01-Manual
-    - exercises/b02-Manual
-    - exercises/b03-Manual
-    - exercises/b04-Manual
-    - exercises/b05-Manual
+    - exercises/b01-Deployment-Plan
+    - exercises/b02-Downloading-Source
+    - exercises/b03-Building-Container
+    - exercises/b04-Deploying-Application
+    - exercises/b05-Thinking-About-Automation
     - exercises/c01-Templates
     - exercises/c02-Templates
     - exercises/c03-Templates
