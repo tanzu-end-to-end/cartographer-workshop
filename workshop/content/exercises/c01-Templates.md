@@ -61,7 +61,7 @@ text: |2
 By providing the GitRepository configuration to the ClusterSourceTemplate, you've given Cartographer the ability to create the resource and monitor its status.
 When Cartographer detects a change in the status, it can extract values. But... which values should it extract?
 
-Recall the value the you copied from the GitRepository resource status.
+Recall the value that you copied from the GitRepository resource status.
 It was found under `.status.artifact.url`.
 
 In order for Cartographer to extract the same value automatically, you need to provide the **path** to the value.
