@@ -10,7 +10,7 @@ spec:
     name: default
   source:
     blob:
-      url: ${NEW_SOURCE}
+      url: $SOURCE_REFERENCE
   build:
     env:
       - name: CGO_ENABLED
