@@ -1,0 +1,9 @@
+#@data/values
+---
+session_namespace: $SESSION_NAMESPACE
+image_prefix: ${REGISTRY_HOST}/
+git_repository: http://$GIT_HOST:$GIT_PORT
+git_branch: main
+git_user_name: $GIT_USERNAME
+git_user_email: $GIT_USERNAME@example.com
+git_commit_message: Update config

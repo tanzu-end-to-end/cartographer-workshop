@@ -10,6 +10,7 @@ rules:
       - kappctrl.k14s.io
       - serving.knative.dev
       - ops.tips
+      - ""
     resources:
       - gitrepositories
       - images
@@ -18,6 +19,7 @@ rules:
       - services
       - runnables
       - gitservers
+      - configmaps
     verbs:
       - list
       - create

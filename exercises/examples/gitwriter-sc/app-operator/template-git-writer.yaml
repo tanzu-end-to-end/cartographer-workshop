@@ -36,18 +36,18 @@ spec:
     metadata:
       name: $(workload.metadata.name)$-git-writer
     spec:
-      serviceAccountName: #@ data.values.service_account_name
+      serviceAccountName: default
       runTemplateRef:
         name: tekton-taskrun
 
       inputs:
-        serviceAccount: #@ data.values.service_account_name
+        serviceAccount: default
         taskRef:
           kind: ClusterTask
           name: git-writer
         params:
           - name: git_repository
-            value: $(params.git_repository)$
+            value: $(params.git_repository)$/$(workload.metadata.name)$-ops.git
           - name: git_branch
             value: $(params.git_branch)$
           - name: git_user_name

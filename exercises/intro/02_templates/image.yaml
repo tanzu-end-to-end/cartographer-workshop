@@ -7,7 +7,7 @@ metadata:
 spec:
   params:
     - name: image_prefix
-      default: some-default-prefix-
+      default: #@ data.values.image_prefix
 
   imagePath: .status.latestImage
 
