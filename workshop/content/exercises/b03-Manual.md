@@ -39,13 +39,8 @@ kp build list
 ```
 
 Check the build log file.
-```execute-1
+```execute-2
 kp build logs hello-world
-```
-
-Once the build has finished, you can also check the registry to verify that the image has been published.
-```execute-1
-skopeo list-tags docker://{{ registry_host }}/hello-world
 ```
 
 Now that the image is ready, check the status of the Image resource again.
