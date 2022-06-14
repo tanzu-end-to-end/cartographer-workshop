@@ -1,5 +1,14 @@
 # Next Steps
 
+## Cleanup
+
+First, go ahead and delete the resources you just created.
+```terminal:execute
+command: kubectl delete -f /home/eduk8s/exercises/intro/01_manual/
+```
+
+## Automate!
+
 At this point, you should be able to see that by simply leveraging Kubernetes and its rich ecosystem, you can easily establish some of the individual steps that make up a Path to Production.
 
 However, there are some coordination and integration steps that still need to be done manually, specifically:
