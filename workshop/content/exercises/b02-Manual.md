@@ -19,7 +19,8 @@ kubectl get gitrepository hello-world -o yaml | yq .status
 ```
 
 Notice specifically the value of `.status.artifact.url`.
-Highlight this value in the terminal and copy it to the clipboard (Ctrl+C or Cmd+C, depending on your computer).
+
+**Highlight this value in the terminal and copy it to the clipboard** (Ctrl+C or Cmd+C, depending on your computer).
 You will need this value in the next step.
 ```execute-1
 kubectl get gitrepository hello-world -o yaml | yq .status.artifact.url

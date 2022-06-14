@@ -3,14 +3,14 @@ kind: Image
 metadata:
   name: hello-world
 spec:
-  tag: harbor.tanzu.coraiberkleid.site/carto-demo/hello-world
+  tag: $REGISTRY_HOST/carto-demo/hello-world
   serviceAccountName: default
   builder:
     kind: ClusterBuilder
     name: default
   source:
     blob:
-      url: ${NEW_SOURCE}
+      url: $SOURCE_REFERENCE
   build:
     env:
       - name: CGO_ENABLED
