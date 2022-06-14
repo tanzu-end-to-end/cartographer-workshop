@@ -1,7 +1,7 @@
 ![img.png](exercises/images/osscon.png)
 
 # Introduction to Supply Chain Choreography with Cartographer
-### with Corby Page and Cora Iberkleid
+#### with Cora Iberkleid and Corby Page
 
 ## Abstract
 

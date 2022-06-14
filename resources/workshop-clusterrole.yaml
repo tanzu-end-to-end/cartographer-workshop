@@ -52,8 +52,7 @@ rules:
       - domainmappings
       - resolutionrequests
       - clustertasks
+      - customresourcedefinitions
     verbs:
       - list
       - get
-
-  

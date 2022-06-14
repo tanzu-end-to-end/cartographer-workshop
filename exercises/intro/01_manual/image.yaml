@@ -3,7 +3,7 @@ kind: Image
 metadata:
   name: hello-world
 spec:
-  tag: harbor.tanzu.coraiberkleid.site/carto-demo/hello-world
+  tag: $REGISTRY_HOST/carto-demo/hello-world
   serviceAccountName: default
   builder:
     kind: ClusterBuilder
