@@ -16,8 +16,6 @@ text: |-
     kind: ClusterImageTemplate
     metadata:
       name: image-{{session_namespace}}
-      annotations:
-        janitor/ttl: 2h
     spec:
       imagePath: 
       template:

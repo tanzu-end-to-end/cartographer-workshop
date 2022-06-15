@@ -16,8 +16,6 @@ text: |-
     kind: ClusterTemplate
     metadata:
       name: app-deploy-{{session_namespace}}
-      annotations:
-        janitor/ttl: 2h
     spec:
       template:
 ```
