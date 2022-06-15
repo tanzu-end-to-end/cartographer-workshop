@@ -27,7 +27,7 @@ Since you want Cartographer to create the Service resource for you, you'll want 
 In this case, however, it's preferable to wrap the Knative configuration with a [Kapp Controller App](https://carvel.dev/kapp-controller/docs/v0.38.0/app-overview) resource.
 
 > **Why Kapp Controller?**
-> 
+>
 > The Knative Serving controller updates the service under the hood to include additional annotations that cannot be mutated once they have been applied.
 > Kapp Controller is helpful in this case because it enables you to disable patching to these annotations.
 
@@ -84,24 +84,24 @@ Now, add the configuration for the Service that you applied manually earlier.
 
 ```editor:append-lines-to-file
 file: /home/eduk8s/exercises/app-deploy.yaml
-text: |14
-    ---
-    apiVersion: serving.knative.dev/v1
-    kind: Service
-    metadata:
-      name: $(workload.metadata.name)$
-    spec:
-      template:
-        metadata:
-          annotations:
-            autoscaling.knative.dev/minScale: "1"
-        spec:
-          serviceAccountName: default
-          containers:
-            - name: workload
-              image: ${NEW_IMAGE}
-              securityContext:
-                runAsUser: 1000
+text: |2
+                  ---
+                  apiVersion: serving.knative.dev/v1
+                  kind: Service
+                  metadata:
+                    name: $(workload.metadata.name)$
+                  spec:
+                    template:
+                      metadata:
+                        annotations:
+                          autoscaling.knative.dev/minScale: "1"
+                      spec:
+                        serviceAccountName: default
+                        containers:
+                          - name: workload
+                            image: ${NEW_IMAGE}
+                            securityContext:
+                              runAsUser: 1000
 ```
 
 By providing the Service configuration to the ClusterTemplate, you've given Cartographer the ability to create the resource and monitor its status.

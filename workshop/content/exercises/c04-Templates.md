@@ -38,36 +38,36 @@ Add the ClusterSourceTemplate.
 
 ```editor:append-lines-to-file
 file: /home/eduk8s/exercises/supply-chain.yaml
-text: |-
-        # fluxcd/GitRepository
-        - name: source-provider
-          templateRef:
-            kind: ClusterSourceTemplate
-            name: source-{{session_namespace}}
+text: |2
+      # fluxcd/GitRepository
+      - name: source-provider
+        templateRef:
+          kind: ClusterSourceTemplate
+          name: source-{{session_namespace}}
 ```
 
 Add the ClusterImageTemplate.
 
 ```editor:append-lines-to-file
 file: /home/eduk8s/exercises/supply-chain.yaml
-text: |-
-        # kpack/Image
-        - name: image-builder
-          templateRef:
-            kind: ClusterImageTemplate
-            name: image-{{session_namespace}}
+text: |2
+      # kpack/Image
+      - name: image-builder
+        templateRef:
+          kind: ClusterImageTemplate
+          name: image-{{session_namespace}}
 ```
 
 Finally, add the ClusterTemplate
 
 ```editor:append-lines-to-file
 file: /home/eduk8s/exercises/supply-chain.yaml
-text: |-
-        # kapp-ctrl/App + knative-serving/Service
-        - name: deployer
-          templateRef:
-            kind: ClusterTemplate
-            name: app-deploy-{{session_namespace}}
+text: |2
+      # kapp-ctrl/App + knative-serving/Service
+      - name: deployer
+        templateRef:
+          kind: ClusterTemplate
+          name: app-deploy-{{session_namespace}}
 ```
 
 Cartographer is now aware of the specific resources to include in this workflow and the order in which these resources must be stamped out.
