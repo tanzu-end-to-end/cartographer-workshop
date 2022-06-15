@@ -146,10 +146,8 @@ Developers can place a label (or multiple labels) on their Workloads, and the Su
 Add a selector to the ClusterSupplyChain.
 ```editor:append-lines-after-match
 file: /home/eduk8s/exercises/supply-chain.yaml
-match: "name: supply-chain-{{session_namespace}}"
-text: |-
-    spec:
-      selector:
+match: "selector:"
+text: |2
         app.tanzu.vmware.com/workload-type: web-{{session_namespace}}
 ```
 
