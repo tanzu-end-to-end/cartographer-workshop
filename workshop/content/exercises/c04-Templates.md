@@ -38,36 +38,36 @@ Add the ClusterSourceTemplate.
 
 ```editor:append-lines-to-file
 file: /home/eduk8s/exercises/supply-chain.yaml
-text: |4
-    # fluxcd/GitRepository
-    - name: source-provider
-      templateRef:
-        kind: ClusterSourceTemplate
-        name: source-{{session_namespace}}
+text: |-
+        # fluxcd/GitRepository
+        - name: source-provider
+          templateRef:
+            kind: ClusterSourceTemplate
+            name: source-{{session_namespace}}
 ```
 
 Add the ClusterImageTemplate.
 
 ```editor:append-lines-to-file
 file: /home/eduk8s/exercises/supply-chain.yaml
-text: |4
-    # kpack/Image
-    - name: image-builder
-      templateRef:
-        kind: ClusterImageTemplate
-        name: image-{{session_namespace}}
+text: |-
+        # kpack/Image
+        - name: image-builder
+          templateRef:
+            kind: ClusterImageTemplate
+            name: image-{{session_namespace}}
 ```
 
 Finally, add the ClusterTemplate
 
 ```editor:append-lines-to-file
 file: /home/eduk8s/exercises/supply-chain.yaml
-text: |4
-    # kapp-ctrl/App + knative-serving/Service
-    - name: deployer
-      templateRef:
-        kind: ClusterTemplate
-        name: app-deploy-{{session_namespace}}
+text: |-
+        # kapp-ctrl/App + knative-serving/Service
+        - name: deployer
+          templateRef:
+            kind: ClusterTemplate
+            name: app-deploy-{{session_namespace}}
 ```
 
 Cartographer is now aware of the specific resources to include in this workflow and the order in which these resources must be stamped out.
@@ -101,10 +101,10 @@ after: 0
 ```editor:append-lines-after-match
 file: /home/eduk8s/exercises/supply-chain.yaml
 match: image-{{session_namespace}}
-text: |4
-    sources:
-      - resource: source-provider
-        name: source
+text: |-
+        sources:
+          - resource: source-provider
+            name: source
 ```
 
 Notice the path formed by this mapping: `sources.source`.
@@ -123,10 +123,10 @@ after: 0
 ```editor:append-lines-after-match
 file: /home/eduk8s/exercises/supply-chain.yaml
 match: app-deploy-{{session_namespace}}
-text: |4
-    images:
-      - resource: image-builder
-        name: image
+text: |-
+        images:
+          - resource: image-builder
+            name: image
 ```
 
 Notice the path formed by this mapping: `images.image`.
@@ -143,20 +143,20 @@ You might have another that better suits batch applications, and so on.
 You can enable developers to choose the Supply Chain that handles their workload using the Kubernetes concept of labels and selectors.
 Developers can place a label (or multiple labels) on their Workloads, and the Supply Chain with selector matching the labels will be used to handle that Workload.
 
-Recall the label you had in the Workload.
+Add a selector to the ClusterSupplyChain.
+```editor:append-lines-after-match
+file: /home/eduk8s/exercises/supply-chain.yaml
+match: "name: supply-chain-{{session_namespace}}"
+text: |-
+    spec:
+      selector:
+        app.tanzu.vmware.com/workload-type: web-{{session_namespace}}
+```
+
+Go back to the Workload and verify that this is the same value used in the Workload label.
 ```editor:select-matching-text
 file: /home/eduk8s/exercises/workload.yaml
 text: app.tanzu.vmware.com/workload-type
 before: 0
 after: 0
-```
-
-Add a selector to the ClusterSupplyChain with a matching value.
-```editor:append-lines-after-match
-file: /home/eduk8s/exercises/supply-chain.yaml
-match: app-deploy-{{session_namespace}}
-text: |-
-    spec:
-      selector:
-        app.tanzu.vmware.com/workload-type: web-{{session_namespace}}
 ```
