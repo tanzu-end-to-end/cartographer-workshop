@@ -17,7 +17,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterTemplate
 metadata:
-  name: #@ "git-writer-" + data.values.session_namespace
+  name: osscon-git-writer
 spec:
   params:
     - name: git_repository
@@ -25,11 +25,11 @@ spec:
     - name: git_branch
       default: #@ data.values.git_branch
     - name: git_user_name
-      default: #@ data.values.git_user_name
+      default: supplychain
     - name: git_user_email
       default: #@ data.values.git_user_email
     - name: git_commit_message
-      default: #@ data.values.git_commit_message
+      default: "Update from Cartographer"
   template:
     apiVersion: carto.run/v1alpha1
     kind: Runnable
@@ -38,8 +38,7 @@ spec:
     spec:
       serviceAccountName: default
       runTemplateRef:
-        name: tekton-taskrun
-
+        name: osscon-tekton-taskrun
       inputs:
         serviceAccount: default
         taskRef:

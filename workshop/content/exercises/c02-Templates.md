@@ -7,6 +7,7 @@ For the kpack Image, you will need a ClusterImageTemplate. This template takes a
 #### Basic template
 
 Create a new file with the basic configuration for a ClusterImageTemplate.
+
 ```editor:insert-lines-before-line
 file: /home/eduk8s/exercises/image.yaml
 line: 1
@@ -15,8 +16,6 @@ text: |-
     kind: ClusterImageTemplate
     metadata:
       name: image-{{session_namespace}}
-      annotations:
-        janitor/ttl: 2h
     spec:
       imagePath: 
       template:
