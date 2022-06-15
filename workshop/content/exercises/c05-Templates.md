@@ -21,8 +21,12 @@ kubectl apply -f /home/eduk8s/exercises/app-deploy.yaml
 Next, apply the Supply Chain.
 
 ```terminal:execute
-kubectl apply -f /home/eduk8s/exercises/app-deploy.yaml
+kubectl apply -f /home/eduk8s/exercises/supply-chain.yaml
 ```
 
-
 ## Is anything happening?
+
+Not yet!
+The ClusterSupplyChain is ready to handle any Workload with a matching label.
+
+In the next step, you'll put on your developer hat and deploy an application using this new Supply Chain.
