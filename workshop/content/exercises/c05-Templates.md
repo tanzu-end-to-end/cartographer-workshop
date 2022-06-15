@@ -5,15 +5,15 @@
 Go ahead and apply the three templates you just created to the cluster.
 
 ```terminal:execute
-kubectl apply -f /home/eduk8s/exercises/source.yaml
+command: kubectl apply -f /home/eduk8s/exercises/source.yaml
 ```
 
 ```terminal:execute
-kubectl apply -f /home/eduk8s/exercises/image.yaml
+command: kubectl apply -f /home/eduk8s/exercises/image.yaml
 ```
 
 ```terminal:execute
-kubectl apply -f /home/eduk8s/exercises/app-deploy.yaml
+command: kubectl apply -f /home/eduk8s/exercises/app-deploy.yaml
 ```
 
 #### Supply Chain
@@ -21,7 +21,7 @@ kubectl apply -f /home/eduk8s/exercises/app-deploy.yaml
 Next, apply the Supply Chain.
 
 ```terminal:execute
-kubectl apply -f /home/eduk8s/exercises/supply-chain.yaml
+command: kubectl apply -f /home/eduk8s/exercises/supply-chain.yaml
 ```
 
 ## Is anything happening?
