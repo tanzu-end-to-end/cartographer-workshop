@@ -6,7 +6,8 @@ For the Knative Serving Service, you will need a ClusterTemplate. This template 
 
 #### Basic template
 
-Create a new file with the basic configuration for a ClusterTemplate.
+Create a new file with the basic configuration for a ClusterImageTemplate.
+
 ```editor:insert-lines-before-line
 file: /home/eduk8s/exercises/app-deploy.yaml
 line: 1
