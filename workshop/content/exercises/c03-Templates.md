@@ -84,24 +84,24 @@ Now, add the configuration for the Service that you applied manually earlier.
 
 ```editor:append-lines-to-file
 file: /home/eduk8s/exercises/app-deploy.yaml
-text: |
-                  ---
-                  apiVersion: serving.knative.dev/v1
-                  kind: Service
-                  metadata:
-                    name: $(workload.metadata.name)$
-                  spec:
-                    template:
-                      metadata:
-                        annotations:
-                          autoscaling.knative.dev/minScale: "1"
-                      spec:
-                        serviceAccountName: default
-                        containers:
-                          - name: workload
-                            image: ${NEW_IMAGE}
-                            securityContext:
-                              runAsUser: 1000
+text: |14
+    ---
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    metadata:
+      name: $(workload.metadata.name)$
+    spec:
+      template:
+        metadata:
+          annotations:
+            autoscaling.knative.dev/minScale: "1"
+        spec:
+          serviceAccountName: default
+          containers:
+            - name: workload
+              image: ${NEW_IMAGE}
+              securityContext:
+                runAsUser: 1000
 ```
 
 By providing the Service configuration to the ClusterTemplate, you've given Cartographer the ability to create the resource and monitor its status.
@@ -129,3 +129,5 @@ text: "$(images.image.image)$"
 Now, Cartographer can create the resource and monitor its status.
 
 Your ClusterTemplate can now be used to create Service resources for any number of applications!
+
+

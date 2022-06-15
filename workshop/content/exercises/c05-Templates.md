@@ -1,17 +1,28 @@
-## Time to Deploy! (Operator Perspective)
+## Apply Templates & Supply Chain
 
-##### Apply Templates
+#### Templates
 
-```execute-1
-kubectl apply -f /home/eduk8s/exercises/intro/02_templates/source.yaml
+Go ahead and apply the three templates you just created to the cluster.
+
+```terminal:execute
+kubectl apply -f /home/eduk8s/exercises/source.yaml
 ```
 
-```execute-1
-kubectl apply -f /home/eduk8s/exercises/intro/02_templates/image.yaml
+```terminal:execute
+kubectl apply -f /home/eduk8s/exercises/image.yaml
 ```
 
-```execute-1
-kubectl apply -f /home/eduk8s/exercises/intro/02_templates/app-deploy.yaml
+```terminal:execute
+kubectl apply -f /home/eduk8s/exercises/app-deploy.yaml
 ```
 
-#### Apply Supply Chain
+#### Supply Chain
+
+Next, apply the Supply Chain.
+
+```terminal:execute
+kubectl apply -f /home/eduk8s/exercises/app-deploy.yaml
+```
+
+
+## Is anything happening?
