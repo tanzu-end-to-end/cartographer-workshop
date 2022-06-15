@@ -24,7 +24,7 @@ text: |-
 The _template_ field can contain any arbitrary YAML configuration that you want Cartographer to submit to the Kubernetes API Server.
 Since you want Cartographer to create the Service resource for you, you'll want to copy the configuration that you applied manually in the manual step into this file.
 
-In this case, however, it's preferable to wrap the Knative configuration with a [Kapp Controller "App"](https://carvel.dev/kapp-controller/docs/v0.38.0/app-overview) resource.
+In this case, however, it's preferable to wrap the Knative configuration with a [Kapp Controller App](https://carvel.dev/kapp-controller/docs/v0.38.0/app-overview) resource.
 
 > **Why Kapp Controller?**
 > 
@@ -34,7 +34,7 @@ In this case, however, it's preferable to wrap the Knative configuration with a 
 Populate the template with the Kapp Controller configuration first.
 ```editor:select-matching-text
 file: /home/eduk8s/exercises/app-deploy.yaml
-text: "template"
+text: template
 before: 0
 after: 0
 ```
@@ -115,7 +115,7 @@ In other words, you need to parameterize `url: ${NEW_IMAGE}` in a way that Carto
 Highlight the value that needs to be updated.
 ```editor:select-matching-text
 file: /home/eduk8s/exercises/app-deploy.yaml
-text: "${NEW_IMAGE}"
+text: ${NEW_IMAGE}
 ```
 
 Replace it with a placeholder using the `images` context.
@@ -123,11 +123,9 @@ In a few steps you will see why this variable name is correct.
 For now, it is enough to know that this variable will contain the value that Cartographer will extract from the Image resource.
 ```editor:replace-text-selection
 file: /home/eduk8s/exercises/app-deploy.yaml
-text: "$(images.image.image)$"
+text: $(images.image.image)$
 ```
 
 Now, Cartographer can create the resource and monitor its status.
 
 Your ClusterTemplate can now be used to create Service resources for any number of applications!
-
-
