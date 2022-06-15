@@ -90,6 +90,6 @@ file: /home/eduk8s/exercises/image.yaml
 text: "  imagePath: .status.latestImage\n"
 ```
 
-Now, Cartographer can create the resource, monitor its status, and extract the desired value(s).
+Now, Cartographer can create the resource, monitor its status, and extract the desired value.
 
 Your ClusterImageTemplate can now be used to create Image resources for any number of applications!

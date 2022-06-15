@@ -153,7 +153,7 @@ file: /home/eduk8s/exercises/source.yaml
 text: "https://github.com/ciberkleid/hello-go"
 ```
 
-Replace this with a parameterizad value that maps to the Workload spec.
+Replace this with a parameterized value that maps to the Workload spec.
 ```editor:replace-text-selection
 file: /home/eduk8s/exercises/source.yaml
 text: "$(workload.spec.source.git.url)$"
