@@ -148,7 +148,7 @@ Add a selector to the ClusterSupplyChain.
 file: /home/eduk8s/exercises/supply-chain.yaml
 match: "selector:"
 text: |2
-        app.tanzu.vmware.com/workload-type: web-{{session_namespace}}
+      app.tanzu.vmware.com/workload-type: web-{{session_namespace}}
 ```
 
 Go back to the Workload and verify that this is the same value used in the Workload label.
