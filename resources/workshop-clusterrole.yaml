@@ -48,6 +48,7 @@ rules:
       - resolution.tekton.dev
       - tekton.dev
     resources:
+      - images
       - builds
       - clusterbuilders
       - routes
