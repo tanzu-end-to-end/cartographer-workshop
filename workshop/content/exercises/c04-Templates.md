@@ -102,9 +102,9 @@ after: 0
 file: /home/eduk8s/exercises/supply-chain.yaml
 match: image-{{session_namespace}}
 text: |2
-      sources:
-        - resource: source-provider
-          name: source
+        sources:
+          - resource: source-provider
+            name: source
 ```
 
 Notice the path formed by this mapping: `sources.source`.
@@ -124,9 +124,9 @@ after: 0
 file: /home/eduk8s/exercises/supply-chain.yaml
 match: app-deploy-{{session_namespace}}
 text: |2
-      images:
-        - resource: image-builder
-          name: image
+        images:
+          - resource: image-builder
+            name: image
 ```
 
 Notice the path formed by this mapping: `images.image`.
