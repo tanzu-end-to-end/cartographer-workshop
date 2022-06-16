@@ -17,10 +17,10 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterDelivery
 metadata:
-  name: #@ "deliver-" + data.values.session_namespace
+  name: osscon-gitops-delivery
 spec:
   selector:
-    app.tanzu.vmware.com/workload-type: #@ "deliver-" + data.values.session_namespace
+    app.tanzu.vmware.com/deliverable-type: osscon
 
   #
   #
@@ -30,11 +30,11 @@ spec:
     - name: source-provider
       templateRef:
         kind: ClusterSourceTemplate
-        name: #@ "gitops-source-" + data.values.session_namespace
+        name: osscon-gitops-source
 
     - name: deployer
       templateRef:
         kind: ClusterDeploymentTemplate
-        name: #@ "app-deploy-" + data.values.session_namespace
+        name: osscon-app-deploy
       deployment:
         resource: source-provider

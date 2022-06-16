@@ -17,10 +17,10 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterSupplyChain
 metadata:
-  name: #@ "supply-chain-" + data.values.session_namespace
+  name: osscon-supply-chain
 spec:
   selector:
-    app.tanzu.vmware.com/workload-type: #@ "web-" + data.values.session_namespace
+    app.tanzu.vmware.com/workload-type: osscon
 
   #
   #
@@ -32,16 +32,16 @@ spec:
     - name: source-provider
       templateRef:
         kind: ClusterSourceTemplate
-        name: #@ "source-" + data.values.session_namespace
+        name: osscon-source-template
 
     # kpack/Image
     - name: image-builder
       templateRef:
         kind: ClusterImageTemplate
-        name: #@ "image-" + data.values.session_namespace
+        name: osscon-image-template
       params:
         - name: image_prefix
-          value: #@ data.values.image_prefix
+          value: harbor.tap.corby.cc/tap
       sources:
         - resource: source-provider
           name: source
@@ -59,7 +59,7 @@ spec:
     - name: config-provider
       templateRef:
         kind: ClusterConfigTemplate
-        name:  #@ "app-config-" + data.values.session_namespace
+        name:  osscon-app-config
       images:
         - resource: image-builder
           name: image
@@ -68,7 +68,7 @@ spec:
     - name: git-writer
       templateRef:
         kind: ClusterTemplate
-        name:  #@ "git-writer-" + data.values.session_namespace
+        name:  osscon-git-writer
       configs:
         - resource: config-provider
           name: data

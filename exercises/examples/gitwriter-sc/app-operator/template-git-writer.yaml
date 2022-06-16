@@ -21,13 +21,13 @@ metadata:
 spec:
   params:
     - name: git_repository
-      default: #@ data.values.git_repository
+      default: https://gitea_admin:VMware1!@gitea.tap.corby.cc/gitea_admin
     - name: git_branch
-      default: #@ data.values.git_branch
+      default: main
     - name: git_user_name
       default: supplychain
     - name: git_user_email
-      default: #@ data.values.git_user_email
+      default: supplychain@osscon.org
     - name: git_commit_message
       default: "Update from Cartographer"
   template:
@@ -43,7 +43,7 @@ spec:
         serviceAccount: default
         taskRef:
           kind: ClusterTask
-          name: git-writer
+          name: osscon-git-writer
         params:
           - name: git_repository
             value: $(params.git_repository)$/$(workload.metadata.name)$-ops.git
