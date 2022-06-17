@@ -1,4 +1,4 @@
-### Step 3: Run the application
+#### Step 3: Run the application
 
 Knative Serving makes it easy to deploy an application using simple configuration to achieve sophisticated behavior, such as auto-scaling, weighted routing, and managed revisions.
 

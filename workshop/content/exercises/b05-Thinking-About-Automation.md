@@ -9,7 +9,7 @@ However, there are some coordination and integration steps that still need to be
 
 Next, you'll learn how to automate these steps using Cartographer.
 
-#### Cleanup
+##### Cleanup
 
 Before continuin, go ahead and delete the resources you just created.
 ```terminal:execute

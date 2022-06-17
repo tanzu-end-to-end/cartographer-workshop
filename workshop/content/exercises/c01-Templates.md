@@ -4,7 +4,7 @@ In this exercise, you will use Cartographer to automate the simple workflow you 
 
 ![img.png](images/cartographer.png)
 
-### Templates
+#### Templates
 
 Cartographer provides an API layer to manage the set of resources in a workflow. This API layer consists of several templates.
 
@@ -13,7 +13,7 @@ List the available types of templates.
 kubectl api-resources | grep carto | grep template
 ```
 
-### ClusterSourceTemplate
+#### ClusterSourceTemplate
 
 For the FluxCD Source Controller activity—the first resource in the workflow—you will need a ClusterSourceTemplate. This template takes arbitrary YAML as input and outputs two values: _url_ and _revision_.
 
@@ -98,7 +98,7 @@ Now, Cartographer can create the resource, monitor its status, and extract the d
 
 You'll need to wrap the kpack Image and Knative Serving Service resources in Cartographer templates as well, but before you do that, let's explore how a template can be used for many different applications.
 
-### Workload
+#### Workload
 
 Currently, the ClusterSourceTemplate you have will stamp out a single resource with a hard-coded git url.
 ```editor:select-matching-text
@@ -143,7 +143,7 @@ before: 0
 after: 4
 ```
 
-### Parameterization
+#### Parameterization
 
 Now that you have a Workload context for developer-provided values, you can update the ClusterSourceTemplate to inject these values dynamically.
 
