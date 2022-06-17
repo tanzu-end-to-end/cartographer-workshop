@@ -1,4 +1,4 @@
-^### Step 2: Build and publish container image
+### Step 2: Build and publish container image
 
 kpack builds images from source code and publishes the images to an image registry.
 
