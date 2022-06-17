@@ -1,15 +1,15 @@
-## Step 1: Download source code
+### Step 1: Download source code
 
 FluxCD Source Controller can poll a git repository periodically and download source code whenever it finds a new commit.
 
 For example, you can use the following configuration to create a GitRepository resource that will poll the sample app repository on GitHub every minute.
 ```editor:open-file
-file: /home/eduk8s/exercises/intro/01_manual/source.yaml
+file: /home/eduk8s/exercises/manual/source.yaml
 ```
 
 Apply this configuration to the cluster.
 ```execute-1
-kubectl apply -f /home/eduk8s/exercises/intro/01_manual/source.yaml
+kubectl apply -f /home/eduk8s/exercises/manual/source.yaml
 ```
 
 The GitRepository resource should immediately find the latest commit in the git repo and download the code to the cluster.

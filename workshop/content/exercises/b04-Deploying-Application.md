@@ -1,15 +1,15 @@
-## Step 3: Run the application
+### Step 3: Run the application
 
 Knative Serving makes it easy to deploy an application using simple configuration to achieve sophisticated behavior, such as auto-scaling, weighted routing, and managed revisions.
 
 You can use the following configuration to deploy the image created in step 2 using Knative Serving.
 ```editor:open-file
-file: /home/eduk8s/exercises/intro/01_manual/app-deploy.yaml
+file: /home/eduk8s/exercises/manual/app-deploy.yaml
 ```
 
 Notice the value of the image is set to a placeholder (`${NEW_IMAGE}"`).
 ```editor:select-matching-text
-file: /home/eduk8s/exercises/intro/01_manual/app-deploy.yaml
+file: /home/eduk8s/exercises/manual/app-deploy.yaml
 text: "${NEW_IMAGE}"
 ```
 
@@ -18,7 +18,7 @@ Do the replacement manually by replacing the placeholder with the value you copi
 
 Now you can apply the Service resource configuration to the cluster.
 ```execute-1
-kubectl apply -f /home/eduk8s/exercises/intro/01_manual/app-deploy.yaml
+kubectl apply -f /home/eduk8s/exercises/manual/app-deploy.yaml
 ```
 
 Check the service.

@@ -47,6 +47,7 @@ rules:
       - serving.knative.dev
       - resolution.tekton.dev
       - tekton.dev
+      - projectcontour.io
     resources:
       - images
       - builds
@@ -58,6 +59,7 @@ rules:
       - resolutionrequests
       - clustertasks
       - customresourcedefinitions
+      - contourdeployments
     verbs:
       - list
       - get

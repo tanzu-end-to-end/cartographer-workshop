@@ -1,6 +1,6 @@
 Let's apply the same approach to templatizing the kpack Image resource.
 
-## ClusterImageTemplate
+### ClusterImageTemplate
 
 For the kpack Image, you will need a ClusterImageTemplate. This template takes arbitrary YAML as input and outputs one value: _image_.
 

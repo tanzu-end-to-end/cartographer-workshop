@@ -21,7 +21,7 @@ metadata:
 spec:
   params:
     - name: git_repository
-      default: https://gitea_admin:VMware1!@gitea.tap.corby.cc/gitea_admin
+      default: https://gitea_admin:VMware1!@gitea.$INGRESS_DOMAIN/gitea_admin
     - name: git_branch
       default: main
     - name: git_user_name
