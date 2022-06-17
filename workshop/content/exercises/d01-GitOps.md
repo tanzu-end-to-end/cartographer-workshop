@@ -56,6 +56,10 @@ text: |2
             name: data
 ```
 
+```terminal:execute
+command: kubectl apply -f ~/exercises/supplychain.yaml
+```
+
 Re-create workload
 ```terminal:execute
 command: kubectl apply -f ~/exercises/workload.yaml

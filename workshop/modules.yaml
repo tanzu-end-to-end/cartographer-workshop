@@ -4,19 +4,19 @@ modules:
         exit_sign: Start
     exercises/a01-Intro:
         name: Intro
-        exit_sign: Deployment Plan
+        exit_sign: Next
     exercises/b01-Deployment-Plan:
-        name: Deployment Plan
-        exit_sign: Downloading Source
+        name: "Manual: Deployment Plan"
+        exit_sign: Next
     exercises/b02-Downloading-Source:
-        name: Downloading Source
-        exit_sign: Building Container
+        name: "Manual: Downloading Source"
+        exit_sign: Next
     exercises/b03-Building-Container:
-        name: Building Container
-        exit_sign: Deploying Application
+        name: "Manual: Building Container"
+        exit_sign: Next
     exercises/b04-Deploying-Application:
-        name: Deploying Application
-        exit_sign: Thinking About Automation
+        name: "Manual: Deploying Application"
+        exit_sign: Next
     exercises/b05-Thinking-About-Automation:
         name: Thinking About Automation
         exit_sign: Next
