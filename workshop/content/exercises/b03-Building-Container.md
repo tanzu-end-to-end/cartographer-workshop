@@ -5,12 +5,12 @@ kpack builds images from source code and publishes the images to an image regist
 You can use the following configuration to create an Image resource that will publish source code from a "blob" (tar file with source code) and publish it to the registry in your workshop session.
 
 ```editor:open-file
-file: /home/eduk8s/exercises/intro/01_manual/image.yaml
+file: /home/eduk8s/exercises/manual/image.yaml
 ```
 
 Notice that the value of the blob is set to a placeholder (`${NEW_SOURCE}`).
 ```editor:select-matching-text
-file: /home/eduk8s/exercises/intro/01_manual/image.yaml
+file: /home/eduk8s/exercises/manual/image.yaml
 text: "${NEW_SOURCE}"
 ```
 
@@ -20,7 +20,7 @@ Do the replacement manually by replacing the placeholder with the value you copi
 
 Now you can apply the Image resource configuration to the cluster.
 ```execute-1
-kubectl apply -f /home/eduk8s/exercises/intro/01_manual/image.yaml
+kubectl apply -f /home/eduk8s/exercises/manual/image.yaml
 ```
 
 Check the status of the Image resource.

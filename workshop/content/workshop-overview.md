@@ -1,9 +1,9 @@
 ![img.png](exercises/images/osscon.png)
 
 ## Introduction to Supply Chain Choreography with Cartographer
-#### with Cora Iberkleid and Corby Page
+#### with [Cora Iberkleid]() and [Corby Page]
 
-### Abstract
+**Abstract**
 
 The Kubernetes ecosystem has a rich set of solutions for various stages of CI/CD.
 Tools like Flux, Tekton, kpack, Knative, ArgoCD, and more help create a modern path to production.
