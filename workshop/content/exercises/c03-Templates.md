@@ -1,6 +1,6 @@
 Finally, apply the same approach to templatizing the Knative Serving Service resource.
 
-## ClusterTemplate
+^### ClusterTemplate
 
 For the Knative Serving Service, you will need a ClusterTemplate. This template takes arbitrary YAML as input. It does not produce any output values.
 
