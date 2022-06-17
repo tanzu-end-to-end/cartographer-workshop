@@ -9,11 +9,3 @@ export PS1_OLD="$PS1"
 export PS1="\n\[\033[33m\]\w\$ \[\033[0m\]"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-export GIT_HOST=git.$SESSION_NAMESPACE
-export GIT_PORT=80
-export GIT_SECRET=learningcenter-git-credentials
-export GIT_USERNAME=$SESSION_NAMESPACE
-export GIT_PASSWORD=$SESSION_NAMESPACE
-
-envsubst < ~/exercises/values-template.yaml > values.yaml
