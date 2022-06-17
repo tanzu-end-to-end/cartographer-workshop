@@ -46,9 +46,9 @@ spec:
           name: osscon-git-writer
         params:
           - name: git_repository
-            value: $(params.git_repository)$/$(workload.metadata.name)$-ops.git
+            value: $(params.git_repository)$/osscon-deliveries.git
           - name: git_branch
-            value: $(params.git_branch)$
+            value: $(workload.metadata.namespace)$-$(workload.metadata.name)$
           - name: git_user_name
             value: $(params.git_user_name)$
           - name: git_user_email

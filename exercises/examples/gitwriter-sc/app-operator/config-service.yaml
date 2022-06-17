@@ -56,7 +56,7 @@ spec:
               securityContext:
                 runAsUser: 1000
           imagePullSecrets:
-            - name: registry-credentials
+            - name: learningcenter-registry-credentials
     #@ end
     
     ---

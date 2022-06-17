@@ -1,88 +1,76 @@
 # Git Writer Supply Chain
+
+Delete workload
 ```terminal:execute
-command: |-
-kubectl create secret generic git-server \
-  --from-literal=username=git-user \
-  --from-literal=password=$SESSION_NAMESPACE
+command: kubectl delete workload hello-world
 ```
 
 ```terminal:execute
-cat <<'EOF' | kubectl create -f -
-apiVersion: ops.tips/v1alpha1
-kind: GitServer
-metadata:
-  name: git-server
-spec:
-  image: cirocosta/git-serve
-  http:
-    auth:
-      username:
-        valueFrom:
-          secretKeyRef:
-            name: git-server
-            key: username
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: git-server
-            key: password
-EOF
-```
-
-
-
-
-```terminal:execute
-command: kapp deploy --yes -a gitwriter-sc -f <(ytt --ignore-unknown-comments -f ./app-operator  -f values.yaml)
+command: kubectl get gitrepository,cnbimage,ksvc 
 ```
 
 ```editor:open-file
-file: ~/exercises/examples/gitwriter-sc/app-operator/supply-chain.yaml
+file: /home/eduk8s/exercises/examples/gitwriter-sc/app-operator/config-service.yaml
 ```
 
-ClusterConfigTemplate for providing configuration in-cluster
-```editor:open-file
-file: ~/exercises/examples/gitwriter-sc/app-operator/config-service.yaml
-```
 
-Templates for using Tekton to push to git
-```terminal:execute
-command: tree ~/exercises/examples/gitwriter-sc/app-operator | grep git
-```
-
-ClusterConfigTemplate for providing configuration in-cluster
-```terminal:execute
-command: yq app-operator/config-service.yaml
-```
-
-Templates for using Tekton to push to git
-```terminal:execute
-command: tree app-operator | grep git
-```
-
-Developer Perspective: same SC selector => same workload!
+Modify Supply Chain
 ```editor:select-matching-text
-file: ~/exercises/examples/gitwriter-sc/app-operator/supply-chain.yaml
-text: web-{{session-namespace}}
+file: ~/exercises/supply-chain.yaml
+text: "# kapp"
+before: 0
+after: 7
 ```
 
-```terminal:execute
-command: kubectl tree workload hello-world
+```editor:replace-text-selection
+file: ~/exercises/supply-chain.yaml
+text: |2
+      # ConfigMap
+      - name: config-provider
+        templateRef:
+          kind: ClusterConfigTemplate
+          name:  osscon-app-config
+        images:
+          - resource: image-builder
+            name: image
 ```
 
-```terminal:execute
-command: kubectl get configmap hello-world -o yaml
+```editor:open-file
+file: ~/exercises/examples/gitwriter-sc/app-operator/template-git-writer.yaml
 ```
 
-```terminal:execute
-command: kubectl get configmap hello-world -o yaml | yq '.data.manifest | @base64d' | yq -P
+```editor:open-file
+file: ~/exercises/examples/gitwriter-sc/app-operator/git-writer-task.yaml
+```
+
+```editor:append-lines-to-file
+file: /home/eduk8s/exercises/supply-chain.yaml
+text: |2
+      # Tekton/TaskRun
+      - name: git-writer
+        templateRef:
+          kind: ClusterTemplate
+          name:  osscon-git-writer
+        configs:
+          - resource: config-provider
+            name: data
+```
+
+```dashboard:open-url
+url: https://gitea.{{ingress_domain}}/gitea_admin/osscon-deliveries/src/branch/{{session_namespace}}-hello-world/config
+```
+
+```editor:open-file
+file: ~/exercises/examples/basic-delivery/app-operator/delivery.yaml
+```
+
+```editor:open-file
+file: ~/exercises/examples/basic-delivery/app-operator/source-git-repository.yaml
+```
+
+```editor:open-file
+file: ~/exercises/examples/basic-delivery/app-operator/deploy-app.yaml
 ```
 
 
-Check ops repo
-```terminal:execute
-command: |-
-git clone http://git-server.{{session_namespace}}.svc.cluster.local:80/gitops-test.git && cd gitops-test && git checkout main
-tree
-yq -P '.' config/manifest.yaml
-```
+
