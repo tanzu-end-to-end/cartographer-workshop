@@ -1,4 +1,4 @@
-### ClusterSupplyChain
+##### ClusterSupplyChain
 
 So far, you have three templates that can be used to create resources (GitRepository, Image, Service) for any given developer application (Workload).
 
@@ -11,7 +11,7 @@ Is that enough?
 
 All these questions can be answered using a _ClusterSupplyChain_.
 
-##### Supply Chain API
+###### Supply Chain API
 
 A ClusterSupplyChain enables an application operator to describe a specific workflow, or path to production, as a series of template resources.
 
@@ -30,7 +30,7 @@ text: |-
       resources:
 ```
 
-##### Resources
+###### Resources
 
 You'll need to add three entries to the list of resources—one for each template you created.
 
@@ -72,7 +72,7 @@ text: |2
 
 Cartographer is now aware of the specific resources to include in this workflow and the order in which these resources must be stamped out.
 
-##### Mapping outputs to inputs
+###### Mapping outputs to inputs
 
 By this point, you know that ClusterSourceTemplate and ClusterImageTemplate produce output values.
 As a reminder:
@@ -132,7 +132,7 @@ text: |2
 Notice the path formed by this mapping: `images.image`.
 This explains why, once inside the configuration of the ClusterTemplate, you can access the specific value `image` output value as `$(images.image.image)$`.
 
-##### Workload selector
+###### Workload selector
 
 You're in the home stretch for the Supply Chain configuration.
 

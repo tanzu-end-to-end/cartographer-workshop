@@ -1,4 +1,4 @@
-### Getting Applications to Production
+##### Getting Applications to Production
 
 The workflow for getting an application to production has many names...
 
@@ -14,15 +14,15 @@ Ultimately, however, the common goal is to streamline the process of moving appl
 
 The evolution of cloud native principles and Kubernetes have enabled a new, elegant, and powerful approach: Supply Chain Choreography on Kubernetes.
 
-In this workshop, you'll learn all about Supply Chain Choreography through hands-on exercises using Cartographer, a Kubernetes-native, open source tool that is easy-to-use and caters to the needs of both developers and operators.
+In this workshop, you'll learn all about Supply Chain Choreography through hands-on exercises using Cartographer, a Kubernetes-native, open source tool that caters to the needs of both developers and operators and is easy to use.
 
-### Agenda
+##### Agenda
 
 - Manual approach
-  - You will start by manually executing a simple path to production on Kubernetes, to understand the basic mechanics of operating a workflow using Kubernetes-native resources and to identify opportunities for automation.
+  - You will start by manually choreographing a simple path to production on Kubernetes, to understand the basic mechanics of operating a workflow using Kubernetes-native resources and to identify opportunities for automation.
 
 - Cartographer 101
-  - Next, you will introduce Cartographer to choreograph the workflow automatically.
+  - Next, you will introduce Cartographer to automate the choreography of workflow.
   You'll explore both the developer and operator experiences for using Cartographer.
 
 - GitOps Workflow

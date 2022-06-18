@@ -1,10 +1,10 @@
 Finally, apply the same approach to templatizing the Knative Serving Service resource.
 
-##### ClusterTemplate
+###### ClusterTemplate
 
 For the Knative Serving Service, you will need a ClusterTemplate. This template takes arbitrary YAML as input. It does not produce any output values.
 
-##### Basic template
+###### Basic template
 
 Create a new file with the basic configuration for a ClusterImageTemplate.
 
@@ -105,7 +105,7 @@ text: |2
 
 By providing the Service configuration to the ClusterTemplate, you've given Cartographer the ability to create the resource and monitor its status.
 
-##### Dynamic inputs
+###### Dynamic inputs
 
 You already used placeholders to parameterize any values coming from the developer's Workload configuration.
 However, you still need to enable Cartographer to inject the output from the ClusterImageTemplate as input into the ClusterTemplate.

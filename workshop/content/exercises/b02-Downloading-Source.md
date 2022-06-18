@@ -1,4 +1,4 @@
-### Step 1: Download source code
+##### Step 1: Download source code
 
 FluxCD Source Controller can poll a git repository periodically and download source code whenever it finds a new commit.
 

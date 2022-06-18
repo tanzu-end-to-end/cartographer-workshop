@@ -1,10 +1,10 @@
 Let's apply the same approach to templatizing the kpack Image resource.
 
-##### ClusterImageTemplate
+###### ClusterImageTemplate
 
 For the kpack Image, you will need a ClusterImageTemplate. This template takes arbitrary YAML as input and outputs one value: _image_.
 
-##### Basic template
+###### Basic template
 
 Create a new file with the basic configuration for a ClusterImageTemplate.
 
@@ -52,7 +52,7 @@ text: |2
 
 By providing the Image configuration to the ClusterImageTemplate, you've given Cartographer the ability to create the resource and monitor its status.
 
-##### Dynamic inputs
+###### Dynamic inputs
 
 You already used placeholders to parameterize any values coming from the developer's Workload configuration.
 However, you still need to enable Cartographer to inject the output from the ClusterSourceTemplate as input into the ClusterImageTemplate.
@@ -72,7 +72,7 @@ file: /home/eduk8s/exercises/image.yaml
 text: "$(sources.source.url)$"
 ```
 
-##### Output path
+###### Output path
 Recall the value that you copied from the Image resource status to the Service resource: `.status.latestImage`.
 
 In order for Cartographer to extract the same value automatically, you need to provide the **path** to the value.

@@ -88,7 +88,7 @@ yq -P '.' config/manifest.yaml
 ```
 
 
-### Delivery
+##### Delivery
 
 ```editor:open-file
 file: ~/exercises/examples/basic-delivery/app-operator/delivery.yaml

@@ -1,6 +1,6 @@
-### Time to Deploy! (Developer Perspective)
+##### Time to Deploy! (Developer Perspective)
 
-##### Apply Workload
+###### Apply Workload
 
 Recall the Workload definition you created earlier.
 
@@ -13,7 +13,7 @@ Go ahead and apply the Workload.
 command: kubectl apply -f /home/eduk8s/exercises/workload.yaml
 ```
 
-##### Track Progress
+###### Track Progress
 
 As a developer, you've just submitted a Workload resource to the cluster.
 Makes sense to check the status of that resource!
@@ -38,7 +38,7 @@ Check the build log file.
 kp build logs hello-world
 ```
 
-##### Test App
+###### Test App
 
 When the workload is ready, you can test the application.
 
