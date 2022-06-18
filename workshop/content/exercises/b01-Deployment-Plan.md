@@ -13,9 +13,9 @@ Now, you could write a script or a fancy little custom program to carry out each
 
 The Kubernetes ecosystem is brimming with exciting projects, and you can find projects that precisely meet your needs.
 For this workshop, you'll be working with:
-1. FluxCD Source Controller - for downloading source code from git
-2. kpack - for building and publishing container images
-3. Knative Serving - for running applications
+1. [FluxCD Source Controller]([FluxCD Source Controller](https://fluxcd.io/docs/components/source)) - for downloading source code from git
+2. [kpack](https://buildpacks.io/docs/tools/kpack) - for building and publishing container images
+3. [Knative Serving](https://knative.dev/docs/serving) - for running applications
 
 ![img.png](images/manual.png)
 
