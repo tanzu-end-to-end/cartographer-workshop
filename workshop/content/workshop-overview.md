@@ -2,10 +2,7 @@
 
 ##### Introduction to Supply Chain Choreography with Cartographer
 
-[//]: # (###### with [<img src="exercises/images/icon-linkedin.svg" alt="linkedin" style="width:13px; margin-right: 1px; margin-left: 3px;"/>]&#40;https://www.linkedin.com/in/ciberkleid&#41; [<img src="exercises/images/icon-twitter.svg" alt="twitter" style="width:13px; margin-right: 1px;">Cora Iberkleid</img>]&#40;https://twitter.com/ciberkleid&#41; and [<img src="exercises/images/icon-linkedin.svg" alt="linkedin" style="width:13px; margin-right: 1px; margin-left: 3px;"/>]&#40;https://www.linkedin.com/in/corby&#41; [<img src="exercises/images/icon-twitter.svg" alt="twitter" style="width:13px; margin-right: 1px;">Corby Page</img>]&#40;https://twitter.com/corbypage&#41;)
-[<img src="exercises/images/icon-linkedin.svg" alt="linkedin" style="width:13px; margin-right: 1px;"/>](https://www.linkedin.com/in/ciberkleid) [<img src="exercises/images/icon-twitter.svg" alt="twitter" style="width:13px; margin-right: 1px;">Cora Iberkleid</img>](https://twitter.com/ciberkleid)
-
-[<img src="exercises/images/icon-linkedin.svg" alt="linkedin" style="width:13px; margin-right: 1px;"/>](https://www.linkedin.com/in/corby) [<img src="exercises/images/icon-twitter.svg" alt="twitter" style="width:13px; margin-right: 1px;">Corby Page</img>](https://twitter.com/corbypage)
+with [Cora Iberkleid](https://twitter.com/ciberkleid) and [Corby Page](https://twitter.com/corbypage)
 
 The Kubernetes ecosystem has a rich set of solutions for various stages of CI/CD.
 Tools like Flux, Tekton, kpack, Knative, ArgoCD, and more help create a modern path to production.
@@ -22,6 +19,11 @@ You will gain working knowledge of Cartographer that you can apply to your own a
 
 <hr>
 
-[<img src="exercises/images/icon-home.svg" alt="home" style="width:25px; margin-right: 3px;"><img/>](https://cartographer.sh)
-[<img src="exercises/images/icon-github.svg" alt="github" style="width:25px; margin-right: 3px;"><img/>](https://github.com/vmware-tanzu/cartographer)
-[<img src="exercises/images/icon-twitter.svg" alt="twitter" style="width:25px; margin-right: 3px;">@OssCartographer<img/>](https://twitter.com/OssCartographer)
+- [Cartographer Home Page]
+- [Cartographer GitHub]
+- [@OssCartographer Twitter]
+
+[//]: # (References)
+[Cartographer Home Page]: https://cartographer.sh
+[Cartographer GitHub]: https://github.com/vmware-tanzu/cartographer
+[@OssCartographer Twitter]: (https://twitter.com/OssCartographer
