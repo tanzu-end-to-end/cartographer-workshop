@@ -1,4 +1,4 @@
-#### Apply Templates & Supply Chain
+### Apply Templates & Supply Chain
 
 ##### Templates
 
@@ -24,9 +24,10 @@ Next, apply the Supply Chain.
 command: kubectl apply -f /home/eduk8s/exercises/supply-chain.yaml
 ```
 
-#### Is anything happening?
+### Is anything happening?
 
 Not yet!
 The ClusterSupplyChain is ready to handle any Workload with a matching label.
+But no resources will be created until you submit a Workload.
 
 In the next step, you'll put on your developer hat and deploy an application using this new Supply Chain.

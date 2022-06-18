@@ -1,4 +1,4 @@
-#### ClusterSupplyChain
+### ClusterSupplyChain
 
 So far, you have three templates that can be used to create resources (GitRepository, Image, Service) for any given developer application (Workload).
 
@@ -132,7 +132,7 @@ text: |2
 Notice the path formed by this mapping: `images.image`.
 This explains why, once inside the configuration of the ClusterTemplate, you can access the specific value `image` output value as `$(images.image.image)$`.
 
-#### Workload selector
+##### Workload selector
 
 You're in the home stretch for the Supply Chain configuration.
 
