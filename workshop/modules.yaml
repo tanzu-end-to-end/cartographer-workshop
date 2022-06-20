@@ -38,9 +38,9 @@ modules:
     exercises/c06-Templates:
         name: Templates
         exit_sign: Next
-    exercises/d01-GitOps:
-        name: GitOps
+    exercises/d01-Improving-Supply-Chain:
+        name: Improving the Supply Chain
         exit_sign: Next
-    exercises/d02-GitOps:
-        name: GitOps
+    exercises/d02-Storing-Config:
+        name: Storing the Deployment as Configuration
         exit_sign: Finish Workshop

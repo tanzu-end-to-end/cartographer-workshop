@@ -15,5 +15,6 @@ modules:
     - exercises/c04-Templates
     - exercises/c05-Templates
     - exercises/c06-Templates
-    - exercises/d01-GitOps
-    - exercises/d02-GitOps
+    - exercises/d01-Improving-Supply-Chain
+    - exercises/d02-Storing-Config
+    - exercises/d03-Git-Writer
