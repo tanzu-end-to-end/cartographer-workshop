@@ -1,6 +1,6 @@
 ##### Improving the Supply Chain
 
-That wasn't so bad! We've created our first supply chain for creating a running deliverable, but it's pretty simple. We get a secure container build, but it just creates a deployment into the same namespace where we've been working. This may be useful for local developer iteration, but not much else.
+That wasn't so bad! We've created our first supply chain for producing a running deliverable, but it's pretty simple. We get a secure container build, but it just creates a deployment into the same namespace where we've been working. This may be useful for local developer iteration, but not much else.
 
 Let's think about a supply chain that can service multiple environments: QA, Staging, even Prod. We're going to modify our supply chain so that instead of outputting our Knative deployment, it will output a **description** of the deployment to a GitOps repo.
 

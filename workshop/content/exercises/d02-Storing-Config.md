@@ -6,12 +6,12 @@ We're going to introduce some new templates that we will use to customize our su
 file: ~/exercises/examples/gitwriter-sc/app-operator/config-service.yaml
 ```
 
-We see a new field in the `ClusterConfigTemplate`. Instead of the `template:` field which creates a static definition of the resource we want to produce, there is a field called `ytt:
+We see a new field in the `ClusterConfigTemplate`. Instead of the `template:` field which creates a static definition of the resource we want to produce, there is a field called `ytt:`
 
 Modify Supply Chain
 ```editor:select-matching-text
 file: ~/exercises/examples/gitwriter-sc/app-operator/config-service.yaml
-text: "ytt:"
+text: "ytt: |"
 ```
 
 [ytt](https://carvel.dev/ytt/) is an alternate templating approach (part of the open-source [Carvel](https://carvel.dev/) project), which allows us to introduce dynamic scripting with the [Starlark](https://bazel.build/rules/language) language.
