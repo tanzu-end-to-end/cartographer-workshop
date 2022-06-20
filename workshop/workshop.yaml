@@ -18,3 +18,5 @@ modules:
     - exercises/d01-Improving-Supply-Chain
     - exercises/d02-Storing-Config
     - exercises/d03-Git-Writer
+    - exercises/d04-Running-Supply-Chain
+    - exercises/d05-Deliverable

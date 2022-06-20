@@ -20,7 +20,7 @@ The template defines a `service()` method that generates the descriptor for our 
 ```editor:select-matching-text
 file: ~/exercises/examples/gitwriter-sc/app-operator/config-service.yaml
 text: "def service"
-before:0 
+before: 0 
 after: 0
 ```
 

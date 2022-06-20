@@ -43,4 +43,13 @@ modules:
         exit_sign: Next
     exercises/d02-Storing-Config:
         name: Storing the Deployment as Configuration
+        exit_sign: Next
+    exercises/d03-Git-Writer:
+        name: Implementing git-writer
+        exit_sign: Next
+    exercises/d04-Running-Supply-Chain:
+        name: Running the New Supply Chain
+        exit_sign: Next
+    exercises/d05-Deliverable:
+        name: Creaating the Deliverable
         exit_sign: Finish Workshop

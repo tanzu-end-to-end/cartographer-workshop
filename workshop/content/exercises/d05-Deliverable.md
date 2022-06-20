@@ -1,38 +1,3 @@
-
-```editor:open-file
-file: ~/exercises/examples/gitwriter-sc/app-operator/template-git-writer.yaml
-```
-
-```editor:open-file
-file: ~/exercises/examples/gitwriter-sc/app-operator/git-writer-task.yaml
-```
-
-```editor:append-lines-to-file
-file: /home/eduk8s/exercises/supply-chain.yaml
-text: |2
-      # Tekton/TaskRun
-      - name: git-writer
-        templateRef:
-          kind: ClusterTemplate
-          name:  osscon-git-writer
-        configs:
-          - resource: config-provider
-            name: data
-```
-
-```terminal:execute
-command: kubectl apply -f ~/exercises/supplychain.yaml
-```
-
-Re-create workload
-```terminal:execute
-command: kubectl apply -f ~/exercises/workload.yaml
-```
-
-```dashboard:open-url
-url: https://gitea.{{ingress_domain}}/gitea_admin/osscon-deliveries/src/branch/{{session_namespace}}-hello-world/config
-```
-
 Review ClusterDelivery
 ```editor:open-file
 file: ~/exercises/examples/basic-delivery/app-operator/delivery.yaml
