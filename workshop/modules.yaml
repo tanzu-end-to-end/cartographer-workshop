@@ -42,7 +42,7 @@ modules:
         name: Improving the Supply Chain
         exit_sign: Next
     exercises/d02-Storing-Config:
-        name: Storing the Deployment as Configuration
+        name: Storing Deployment as Config
         exit_sign: Next
     exercises/d03-Git-Writer:
         name: Implementing git-writer
@@ -51,5 +51,5 @@ modules:
         name: Running the New Supply Chain
         exit_sign: Next
     exercises/d05-Deliverable:
-        name: Creaating the Deliverable
+        name: Creating the Deliverable
         exit_sign: Finish Workshop

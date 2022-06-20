@@ -53,7 +53,7 @@ after: 21
 OK, now let's complete our supply chain:
 
 ```editor:open-file
-file: ~/exercises/examples/gitwriter-sc/app-operator/git-writer-task.yaml
+file: ~/exercises/supply-chain.yaml
 ```
 
 We'll add the last step. As input, it will reference the `ConfigMap` that was generated in the previous step. It will then execute the Tekton task to write out the `ConfigMap` data to our Git repo:
