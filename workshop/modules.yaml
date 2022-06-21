@@ -21,35 +21,35 @@ modules:
         name: Thinking About Automation
         exit_sign: Next
     exercises/c01-Source-Template:
-        name: Source Template
+        name: "Templates: Source"
         exit_sign: Next
     exercises/c02-Image-Template:
-        name: Image Template
+        name: "Templates: Image"
         exit_sign: Next
     exercises/c03-Cluster-Template:
-        name: Cluster Template
+        name: "Templates: Cluster"
         exit_sign: Next
     exercises/c04-Supply-Chain:
-        name: Supply Chain
+        name: "Templates: Supply Chain"
         exit_sign: Next
     exercises/c05-Applying-Templates:
-        name: Applying Templates and Supply Chain
+        name: "Templates: Applying"
         exit_sign: Next
     exercises/c06-Workload:
-        name: Applying Workload
+        name: "Templates: Workload"
         exit_sign: Next
     exercises/d01-Improving-Supply-Chain:
         name: Improving the Supply Chain
         exit_sign: Next
     exercises/d02-Storing-Config:
-        name: Storing Deployment as Config
+        name: "GitOps: Config"
         exit_sign: Next
     exercises/d03-Git-Writer:
-        name: Implementing git-writer
+        name: "GitOps: git-writer"
         exit_sign: Next
     exercises/d04-Running-Supply-Chain:
-        name: Running the New Supply Chain
+        name: "GitOps: New Supply Chain"
         exit_sign: Next
     exercises/d05-Deliverable:
-        name: Creating the Deliverable
+        name: "GitOps: Deliverable"
         exit_sign: Finish Workshop
