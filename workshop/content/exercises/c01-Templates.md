@@ -26,8 +26,6 @@ text: |-
     kind: ClusterSourceTemplate
     metadata:
       name: source-{{session_namespace}}
-      annotations:
-        janitor/ttl: 2h
     spec:
       urlPath: 
       revisionPath: 
