@@ -99,6 +99,12 @@ And now it deploys onto our cluster.
 command: kn service list
 ```
 
+Once the Knative service is reporting a status of Ready:True, we can hit the application endpoint:
+
+```execute-1
+curl http://hello-world-{{ session_namespace }}.{{ ingress_domain }}
+```
+
 We can check that everything completed well by checking the status of our deliverable:
 
 ```terminal:execute

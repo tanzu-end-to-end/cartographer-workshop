@@ -17,7 +17,7 @@ command: kubectl apply -f ~/exercises/workload.yaml
 ```
 
 We can follow along as the supply chain progresses:
-```terminal:execute-2
+```execute-2
 tanzu apps workload tail hello-world
 ```
 
