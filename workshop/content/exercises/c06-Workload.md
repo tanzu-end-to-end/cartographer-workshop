@@ -28,6 +28,12 @@ Check the build log file.
 tanzu apps workload tail hello-world
 ```
 
+Once you see the message "Build successful" from the workload pods, you can send a Control-C to the bottom terminal window to end the tail.
+
+```execute-2
+<ctrl+c>
+```
+
 ###### Test App
 
 When the workload is ready, you can test the application.
