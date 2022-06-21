@@ -77,7 +77,7 @@ file:  /home/eduk8s/exercises/deliverable.yaml
 text: |2
       git:
         ref:
-          branch: {{session_namespace}}-hello-world
+          branch: main
         url: https://gitea.{{ingress_domain}}/gitea_admin/{{session_namespace}}
 ```
 
