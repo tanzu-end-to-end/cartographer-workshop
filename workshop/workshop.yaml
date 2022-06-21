@@ -9,12 +9,12 @@ modules:
     - exercises/b03-Building-Container
     - exercises/b04-Deploying-Application
     - exercises/b05-Thinking-About-Automation
-    - exercises/c01-Templates
-    - exercises/c02-Templates
-    - exercises/c03-Templates
-    - exercises/c04-Templates
-    - exercises/c05-Templates
-    - exercises/c06-Templates
+    - exercises/c01-Source-Template
+    - exercises/c02-Image-Template
+    - exercises/c03-Cluster-Template
+    - exercises/c04-Supply-Chain
+    - exercises/c05-Applying-Templates
+    - exercises/c06-Workload
     - exercises/d01-Improving-Supply-Chain
     - exercises/d02-Storing-Config
     - exercises/d03-Git-Writer

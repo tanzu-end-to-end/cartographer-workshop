@@ -20,23 +20,23 @@ modules:
     exercises/b05-Thinking-About-Automation:
         name: Thinking About Automation
         exit_sign: Next
-    exercises/c01-Templates:
-        name: Templates
+    exercises/c01-Source-Template:
+        name: Source Template
         exit_sign: Next
-    exercises/c02-Templates:
-        name: Templates
+    exercises/c02-Image-Template:
+        name: Image Template
         exit_sign: Next
-    exercises/c03-Templates:
-        name: Templates
+    exercises/c03-Cluster-Template:
+        name: Cluster Template
         exit_sign: Next
-    exercises/c04-Templates:
-        name: Templates
+    exercises/c04-Supply-Chain:
+        name: Supply Chain
         exit_sign: Next
-    exercises/c05-Templates:
-        name: Templates
+    exercises/c05-Applying-Templates:
+        name: Applying Templates and Supply Chain
         exit_sign: Next
-    exercises/c06-Templates:
-        name: Templates
+    exercises/c06-Workload:
+        name: Applying Workload
         exit_sign: Next
     exercises/d01-Improving-Supply-Chain:
         name: Improving the Supply Chain
