@@ -55,4 +55,4 @@ modules:
         exit_sign: Next
     workshop-conclusion:
         name: Next Steps
-        exit_sign: Start
+        exit_sign: Finish Workshop
