@@ -78,7 +78,7 @@ text: |2
       git:
         ref:
           branch: {{session_namespace}}-hello-world
-        url: https://gitea.{{ingress_domain}}/gitea_admin/osscon-deliveries
+        url: https://gitea.{{ingress_domain}}/gitea_admin/{{session_namespace}}
 ```
 
 Now, we can apply our deliverable, which will begin execution of the `ClusterDelivery`
