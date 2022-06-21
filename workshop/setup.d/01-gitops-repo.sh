@@ -14,5 +14,5 @@ git config user.email "gitea_admin@example.com"
 git add .
 git commit -a -m "Initial Commit"
 
-git remote add origin https://gitea_admin:$GITEA_PASSWORD@gitea.${INGRESS_DOMAIN}/gitea_admin/$REPO_NAME.git
+git remote add origin https://gitea_admin:VMware1\!@gitea.${INGRESS_DOMAIN}/gitea_admin/$REPO_NAME.git
 git push -u origin main
