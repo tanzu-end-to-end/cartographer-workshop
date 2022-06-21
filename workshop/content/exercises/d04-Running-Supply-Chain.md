@@ -21,7 +21,7 @@ We will update our workload, providing a GitRepository parameter that lets the s
 file: /home/eduk8s/exercises/workload.yaml
 text: |2
     params:
-      - name: gitops_repository
+      - name: gito_repository
         value: https://gitea_admin:VMware1!@gitea.{{ingress_domain}}/gitea_admin/{{session_namespace}}.git
 ```
 
