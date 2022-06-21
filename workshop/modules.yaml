@@ -52,4 +52,7 @@ modules:
         exit_sign: Next
     exercises/d05-Deliverable:
         name: "GitOps: Deliverable"
-        exit_sign: Finish Workshop
+        exit_sign: Next
+    workshop-conclusion:
+        name: Next Steps
+        exit_sign: Start

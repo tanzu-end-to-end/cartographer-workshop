@@ -20,3 +20,4 @@ modules:
     - exercises/d03-Git-Writer
     - exercises/d04-Running-Supply-Chain
     - exercises/d05-Deliverable
+    - workshop-conclusion
