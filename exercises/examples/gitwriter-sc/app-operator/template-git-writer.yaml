@@ -21,7 +21,7 @@ metadata:
 spec:
   params:
     - name: git_repository
-      default: https://gitea_admin:VMware1!@gitea.$INGRESS_DOMAIN/gitea_admin
+      default: https://gitea_admin:VMware1!@gitea.$INGRESS_DOMAIN/gitea_admin/osscon-deliveries.git
     - name: git_branch
       default: main
     - name: git_user_name
@@ -46,9 +46,9 @@ spec:
           name: osscon-git-writer
         params:
           - name: git_repository
-            value: $(params.git_repository)$/osscon-deliveries.git
+            value: $(params.git_repository)$
           - name: git_branch
-            value: $(workload.metadata.namespace)$-$(workload.metadata.name)$
+            value: $(params.git_branch)$
           - name: git_user_name
             value: $(params.git_user_name)$
           - name: git_user_email
