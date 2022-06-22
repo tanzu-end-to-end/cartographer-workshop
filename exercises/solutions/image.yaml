@@ -1,0 +1,20 @@
+apiVersion: carto.run/v1alpha1
+kind: ClusterImageTemplate
+metadata:
+  name: image-$SESSION_NAMESPACE
+spec:
+  imagePath: .status.latestImage
+  template:
+    apiVersion: kpack.io/v1alpha2
+    kind: Image
+    metadata:
+      name: $(workload.metadata.name)$
+    spec:
+      tag: $SESSION_NAMESPACE-registry.$INGRESS_DOMAIN/$(workload.metadata.name)$
+      serviceAccountName: default
+      builder:
+        kind: ClusterBuilder
+        name: default
+      source:
+        blob:
+          url: $(sources.source.url)$

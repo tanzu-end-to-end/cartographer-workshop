@@ -1,0 +1,29 @@
+apiVersion: carto.run/v1alpha1
+kind: ClusterSupplyChain
+metadata:
+  name: supply-chain-$SESSION_NAMESPACE
+spec:
+  selector:
+    app.tanzu.vmware.com/workload-type: web-$SESSION_NAMESPACE
+  resources:
+    # fluxcd/GitRepository
+    - name: source-provider
+      templateRef:
+        kind: ClusterSourceTemplate
+        name: source-$SESSION_NAMESPACE
+    # kpack/Image
+    - name: image-builder
+      templateRef:
+        kind: ClusterImageTemplate
+        name: image-$SESSION_NAMESPACE
+      sources:
+        - resource: source-provider
+          name: source
+    # kapp-ctrl/App + knative-serving/Service
+    - name: deployer
+      templateRef:
+        kind: ClusterTemplate
+        name: app-deploy-$SESSION_NAMESPACE
+      images:
+        - resource: image-builder
+          name: image

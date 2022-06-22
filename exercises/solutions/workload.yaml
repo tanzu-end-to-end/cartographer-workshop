@@ -1,0 +1,13 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: hello-world
+  labels:
+    app.tanzu.vmware.com/workload-type: web-$SESSION_NAMESPACE
+spec:
+  serviceAccountName: default
+  source:
+    git:
+      url: https://github.com/ciberkleid/hello-go
+      ref:
+        branch: main
