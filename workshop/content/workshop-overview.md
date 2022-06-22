@@ -26,4 +26,4 @@ You will gain working knowledge of Cartographer that you can apply to your own a
 [//]: # (References)
 [Cartographer Home Page]: https://cartographer.sh
 [Cartographer GitHub]: https://github.com/vmware-tanzu/cartographer
-[@OssCartographer Twitter]: (https://twitter.com/OssCartographer
+[@OssCartographer Twitter]: https://twitter.com/OssCartographer
