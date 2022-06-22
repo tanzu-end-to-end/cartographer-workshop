@@ -17,7 +17,7 @@ before: 0
 after: 10
 ```
 
-And it will produce a special Cartographer resource called a `Runnable`
+And it will produce a special Cartographer resource called a `Runnable`.
 
 ```editor:select-matching-text
 file: ~/exercises/examples/gitwriter-sc/app-operator/template-git-writer.yaml
@@ -26,7 +26,9 @@ before: 1
 after: 0
 ```
 
-`Runnable` is a wrapper for immutable Kubernetes resources, like those used to execute shell scripts. It will handle lifecycle of the immutable resource, and attach mutable information, like job state and output status fields, that will allow us to use the immutable resource cleanly within Cartographer. Let's find the immutable resource we are wrapping:
+`Runnable` will serve as a wrapper around the resource that executes the `git push` script, and it will allow us to "decorate" that resource with metadata that Cartographer needs in order to track the status and generate output values.
+
+Further down the same file, we can find the resource we are wrapping:
 
 ```editor:select-matching-text
 file: ~/exercises/examples/gitwriter-sc/app-operator/template-git-writer.yaml
@@ -35,7 +37,12 @@ before: 0
 after: 2
 ```
 
-Aha! This is a Tekton 'ClusterTask', the immutable resource that will be used to execute our Git Writer script. This is pretty handy, because there is large community support for Tekton tasks, and we now have a method for executing them in our Cartographer supply chains. Let's inspect the task:
+Aha! This is a [Tekton](https://tekton.dev/) 'ClusterTask'.
+
+Tekton is general-purpose pipelining tool that can be used to run composable tasks in Kubernetes. We will use it to run a `git push` script.
+
+This is pretty handy, because we now have a mechanism for running arbitrary scripts as part of our supply chain. If you need to add a step to you supply chain and there is no existing ecosystem project that will do the trick, you can use this approach to execute the logic you need in a script.
+there is large community support for Tekton tasks, and we now have a method for executing them in our Cartographer supply chains. Let's inspect the task:
 
 ```editor:open-file
 file: ~/exercises/examples/gitwriter-sc/app-operator/git-writer-task.yaml
