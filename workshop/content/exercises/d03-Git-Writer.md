@@ -41,8 +41,9 @@ Aha! This is a [Tekton](https://tekton.dev/) 'ClusterTask'.
 
 Tekton is general-purpose pipelining tool that can be used to run composable tasks in Kubernetes. We will use it to run a `git push` script.
 
-This is pretty handy, because we now have a mechanism for running arbitrary scripts as part of our supply chain. If you need to add a step to you supply chain and there is no existing ecosystem project that will do the trick, you can use this approach to execute the logic you need in a script.
-there is large community support for Tekton tasks, and we now have a method for executing them in our Cartographer supply chains. Let's inspect the task:
+This is pretty handy because there is large community support for Tekton tasks, and we now have a method for executing them in our Cartographer supply chains. What's more, if there is no existing ecosystem project that does what you need, you can use this approach to execute any custom script.
+
+Let's inspect the Tekton task:
 
 ```editor:open-file
 file: ~/exercises/examples/gitwriter-sc/app-operator/git-writer-task.yaml

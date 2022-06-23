@@ -2,7 +2,7 @@
 
 It's worth noting that there is no magic in this final step. We are going to sync the contents of our GitOps repo with a target cluster. This probably sounds familiar. It's the same type of task that is accomplished by other popular open-source tools like [ArgoCD](https://argoproj.github.io/cd/) and [Flux](https://fluxcd.io/). If you have already adopted one of these tools, feel free to use them here! But we are going to show the Cartographer approach for achieving the same goal.
 
-In Cartographer, delivery is completely decoupled from supply chains. This means we can define our delivery on a different cluster, or on any number of different clusters, from where the supply chain executed. Those clusters can live anywhere, even different clouds, as long as they have visibility to the GitOps repo. For purposes of this lab environment, however, we are going to define the delivery in the same namespace where we created the supply chain.
+In Cartographer, delivery is completely decoupled from supply chains. This means we can set up the supply chain on one cluster, and define our delivery on a different cluster, or on any number of different clusters. Those clusters can live anywhere, even different clouds, as long as they have visibility to the GitOps repo. For purposes of this lab environment, however, we are going to define the delivery in the same namespace where we created the supply chain.
 
 A `ClusterSupplyChain` resource was used to define our supply chain. A `ClusterDelivery` resource will be used to implement our delivery.
 

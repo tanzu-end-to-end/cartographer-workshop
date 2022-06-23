@@ -1,5 +1,16 @@
 #### Running the Updated Supply Chain
 
+The templates you just reviewed are already deployed to the cluster.
+You can verify this using the following commands.
+
+```terminal:execute
+command: kubectl get clusterconfigtemplate osscon-app-config
+```
+
+```terminal:execute
+command: kubectl get clustertemplate osscon-git-writer 
+```
+
 Let's go ahead and apply the definition for our updated supply chain.
 
 ```terminal:execute
@@ -9,7 +20,7 @@ command: kubectl apply -f ~/exercises/supply-chain.yaml
 Remember, this is the behavior we are implementing in our new definition:
 ![Cartographer GitOps](images/cartographer-gitops.png)
 
-Now, we will can revisit our workload:
+Now, we can revisit our workload:
 
 ```editor:open-file
 file: /home/eduk8s/exercises/workload.yaml
@@ -21,7 +32,7 @@ We will update our workload, providing a GitRepository parameter that lets the s
 file: /home/eduk8s/exercises/workload.yaml
 text: |2
     params:
-      - name: gito_repository
+      - name: git_repository
         value: https://gitea_admin:VMware1!@gitea.{{ingress_domain}}/gitea_admin/{{session_namespace}}.git
 ```
 
@@ -36,7 +47,12 @@ We can follow along as the supply chain progresses:
 tanzu apps workload tail hello-world
 ```
 
-Once the supply chain is complete, we can see there is no Knative Service running
+You can use the following command to verify that the workload is ready.
+```terminal:execute
+command: kubectl get workload hello-world
+```
+
+When the workload status says `Ready`, we can see there is no Knative Service running
 
 ```terminal:execute
 command: kubectl get ksvc
