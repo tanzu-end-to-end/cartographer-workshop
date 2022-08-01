@@ -15,6 +15,11 @@ spec:
     image: "harbor.tap.corby.cc/tanzu-e2e/eduk8s-cartographer-workshop:latest"
     files: "github.com/tanzu-end-to-end/cartographer-workshop?ref=main"
   session:
+    env:
+    - name: GITEA_USER
+      value: gitea_admin
+    - name: GITEA_PASSWORD
+      value: VMware1!
     namespaces:
       budget: custom
     applications:
