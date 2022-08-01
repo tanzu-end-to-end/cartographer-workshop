@@ -33,7 +33,7 @@ file: /home/eduk8s/exercises/workload.yaml
 text: |2
     params:
       - name: git_repository
-        value: https://{{ENV_GITEA_USER}}:{{ENV_GITEA_PASSWORD}@gitea.{{ingress_domain}}/gitea_admin/{{session_namespace}}.git
+        value: https://{{ENV_GITEA_USER}}:{{ENV_GITEA_PASSWORD}}@gitea.{{ingress_domain}}/gitea_admin/{{session_namespace}}.git
 ```
 
 Re-creating our workload will cause our application to be delivered using the new supply chain:
