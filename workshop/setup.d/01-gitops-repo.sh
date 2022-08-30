@@ -4,6 +4,7 @@ set +e
 
 # get user and password from secret, if it was used
 if [[ -n "${GITEA_ADMIN_SECRET}"]]; then
+  echo "Looking up user and password from secret ${GITEA_ADMIN_SECRET}"
   GITEA_USER=$(kubectl get secret $GITEA_ADMIN_SECRET -o jsonpath='{.data.username}' | base64 -d)
   GITEA_PASSWORD=$(kubectl get secret $GITEA_ADMIN_SECRET -o jsonpath='{.data.password}' | base64 -d)
 fi
