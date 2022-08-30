@@ -1,4 +1,3 @@
-const yaml = require('js-yaml');
 const { spawnSync } = require('child_process');
 
 function initialize(workshop) {
@@ -10,7 +9,7 @@ function initialize(workshop) {
     kubectl = spawnSync('kubectl', ['-n', namespace, 'get', 'secret', admin_secret, '-o', 'jsonpath="{.data}"'], {timeout: 30000, encoding: "utf8"});
   
     if(kubectl.status == 0) {
-      const secret_data = yaml.load(kubectl.stdout.toString());
+      const secret_data = JSON.parse(kubectl.stdout.toString());
       const username = new Buffer(secret_data.username, 'base64').toString("utf8");
       const password = new Buffer(secret_data.password, 'base64').toString("utf8");
       console.log('Got Gitea admin secret.');
