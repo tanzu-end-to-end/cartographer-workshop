@@ -14,7 +14,7 @@ git commit -a -m "Initial Commit"
 
 # wait for server availability
 echo -n "Waiting for https://${GITEA_DOMAIN}/${GITEA_USER}"
-until ! curl -I -f https://${GITEA_DOMAIN}/${GITEA_USER}
+until curl -I -f https://${GITEA_DOMAIN}/${GITEA_USER}
 do
   echo -n "."
 done
