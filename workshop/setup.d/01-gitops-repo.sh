@@ -24,6 +24,7 @@ echo -n "Waiting for https://${GITEA_DOMAIN}/${GITEA_USER}"
 until curl -I -f https://${GITEA_DOMAIN}/${GITEA_USER}
 do
   echo -n "."
+  sleep 1
 done
 echo "success!"
 
