@@ -78,7 +78,7 @@ text: |2
       git:
         ref:
           branch: main
-        url: https://gitea.{{ingress_domain}}/gitea_admin/{{session_namespace}}
+        url: https://{{ENV_GITEA_DOMAIN}}/{{ENV_GITEA_USER}}/{{session_namespace}}
 ```
 
 Now, we can apply our deliverable, which will begin execution of the `ClusterDelivery`

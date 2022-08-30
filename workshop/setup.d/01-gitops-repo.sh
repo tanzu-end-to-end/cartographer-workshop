@@ -12,5 +12,13 @@ git config user.email "${GITEA_USER}@example.com"
 git add .
 git commit -a -m "Initial Commit"
 
-git remote add origin https://${GITEA_USER}:${GITEA_PASSWORD}@gitea.${INGRESS_DOMAIN}/gitea_admin/$SESSION_NAMESPACE.git
+# wait for server availability
+echo -n "Waiting for https://${GITEA_DOMAIN}/${GITEA_USER}"
+until ! curl -I -f https://${GITEA_DOMAIN}/${GITEA_USER}
+do
+  echo -n "."
+done
+echo "success!"
+
+git remote add origin https://${GITEA_USER}:${GITEA_PASSWORD}@${GITEA_DOMAIN}/${GITEA_USER}/$SESSION_NAMESPACE.git
 git push -u origin main

@@ -73,6 +73,8 @@ spec:
 
   session:
     env:
+    - name: GITEA_DOMAIN
+      value: gitea.$(ingress_domain)
     - name: GITEA_USER
       value: gitea_admin
     - name: GITEA_PASSWORD
@@ -141,3 +143,67 @@ spec:
           - kind: ServiceAccount
             namespace: $(workshop_namespace)
             name: $(service_account)
+      - apiVersion: secretgen.k14s.io/v1alpha1
+        kind: Password
+        metadata:
+          name: gitea-admin
+          namespace: $(session_namespace)
+        spec: 
+          secretTemplate:
+            type: Opaque
+            stringData:
+              username: gitea-admin
+              password: $(value)
+      - apiVersion: v1
+        kind: ConfigMap
+        metadata:
+          name: $(session_namespace)-gitea-values
+          namespace: $(workshop_namespace)
+        data:
+          values.yml: |
+            global: 
+              imageRegistry: harbor.workshop.amer.end2end.link/docker-proxy
+            gitea:
+              admin:
+                existingSecret: gitea-admin
+              config:
+                database:
+                  DB_TYPE: sqlite3
+            postgresql:
+              enabled: false
+            memcached:
+              enabled: false
+            persistence:
+              size: 1Gi
+      - apiVersion: kappctrl.k14s.io/v1alpha1
+        kind: App
+        metadata:
+          name: $(session_namespace)-gitea
+          namespace: $(workshop_namespace)
+        spec:
+          # Prevent hangs when Learning Center deletes namespace
+          noopDelete: true
+          serviceAccountName: $(service_account)
+          fetch:
+          - helmChart:
+              name: gitea
+              version: 6.0.0
+              repository:
+                url: https://dl.gitea.io/charts/
+          template:
+          - helmTemplate:
+              namespace: $(session_namespace)
+              valuesFrom:
+              - configMapRef:
+                  name: $(session_namespace)-gitea-values
+          - ytt:
+              ignoreUnknownComments: true
+              inline:
+                paths:
+                  remove-test-pod.yaml: |
+                    #@ load("@ytt:overlay", "overlay")
+                    #@overlay/match by=overlay.subset({"apiVersion": "v1","kind": "Pod","metadata":{"name":"$(session_namespace)-gitea-test-connection"}}), missing_ok=True
+                    #@overlay/remove
+          deploy:
+          - kapp:
+              intoNs: $(session_namespace)
