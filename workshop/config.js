@@ -9,10 +9,11 @@ function initialize(workshop) {
     kubectl = spawnSync('kubectl', ['-n', namespace, 'get', 'secret', admin_secret, '-o', 'jsonpath="{.data}"'], {timeout: 30000, encoding: "utf8"});
   
     if(kubectl.status == 0) {
-      const secret_data = JSON.parse(kubectl.stdout.toString());
-      const username = new Buffer(secret_data.username, 'base64').toString("utf8");
-      const password = new Buffer(secret_data.password, 'base64').toString("utf8");
-      console.log('Got Gitea admin secret.');
+      console.log('Got Gitea admin secret. Parsing.');
+      const secret = kubectl.stdout.toString();
+      const secret_data = JSON.parse(secret.substring(1,secret.length-1));
+      const username = Buffer.from(secret_data.username, 'base64').toString("utf8");
+      const password = Buffer.from(secret_data.password, 'base64').toString("utf8");
       workshop.data_variable('gitea_user', username);
       workshop.data_variable('gitea_password', password);
     } else {
