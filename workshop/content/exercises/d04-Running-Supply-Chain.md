@@ -33,7 +33,7 @@ file: /home/eduk8s/exercises/workload.yaml
 text: |2
     params:
       - name: git_repository
-        value: https://{{ENV_GITEA_USER}}:{{ENV_GITEA_PASSWORD}}@{{ENV_GITEA_DOMAIN}}/{{ENV_GITEA_USER}}/{{session_namespace}}.git
+        value: https://{{gitea_user}}:{{gitea_password}}@{{ENV_GITEA_DOMAIN}}/{{gitea_user}}/{{session_namespace}}.git
 ```
 
 Re-creating our workload will cause our application to be delivered using the new supply chain:
@@ -61,7 +61,7 @@ command: kubectl get ksvc
 Instead of creating a deployment, we have written a description of the deployment to our Git repo. Inspect the contents of the `manifest.yaml` file that was written out to Git.
 
 ```dashboard:open-url
-url: https://{{ENV_GITEA_DOMAIN}}/{{ENV_GITEA_USER}}/{{session_namespace}}/src/branch/main/config
+url: https://{{ENV_GITEA_DOMAIN}}/{{gitea_user}}/{{session_namespace}}/src/branch/main/config
 ```
 
 OK, now for the final step: using GitOps to run our application on target clusters.

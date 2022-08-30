@@ -2,6 +2,12 @@
 set -x
 set +e
 
+# get user and password from secret, if it was used
+if [[ -n "${GITEA_ADMIN_SECRET}"]]; then
+  GITEA_USER=$(kubectl get secret $GITEA_ADMIN_SECRET -o jsonpath='{.data.username}' | base64 -d)
+  GITEA_PASSWORD=$(kubectl get secret $GITEA_ADMIN_SECRET -o jsonpath='{.data.password}' | base64 -d)
+fi
+
 mkdir $SESSION_NAMESPACE
 cd $SESSION_NAMESPACE
 echo "# Cartographer Delivery Repo" >> README.MD
