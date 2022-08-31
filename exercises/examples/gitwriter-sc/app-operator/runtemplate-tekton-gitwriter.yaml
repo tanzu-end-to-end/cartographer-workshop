@@ -17,7 +17,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterRunTemplate
 metadata:
-  name: osscon-tekton-taskrun
+  name: $WORKSHOP_NAMESPACE-tekton-taskrun
 spec:
   template:
     apiVersion: tekton.dev/v1beta1

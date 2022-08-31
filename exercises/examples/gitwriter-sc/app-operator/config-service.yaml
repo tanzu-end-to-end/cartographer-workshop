@@ -17,7 +17,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterConfigTemplate
 metadata:
-  name: osscon-app-config
+  name: $WORKSHOP_NAMESPACE-app-config
 spec:
   configPath: .data.manifest
 

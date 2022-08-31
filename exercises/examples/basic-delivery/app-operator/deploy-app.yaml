@@ -15,7 +15,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterDeploymentTemplate
 metadata:
-  name: osscon-app-deploy
+  name: $WORKSHOP_NAMESPACE-app-deploy
 spec:
 
   observedCompletion:

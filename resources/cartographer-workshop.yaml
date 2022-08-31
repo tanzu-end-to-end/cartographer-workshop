@@ -70,7 +70,176 @@ spec:
           - customresourcedefinitions
           - contourdeployments
         verbs: [list, get]
+    - apiVersion: carto.run/v1alpha1
+      kind: ClusterConfigTemplate
+      metadata:
+        name: $(workshop_namespace)-app-config
+      spec:
+        configPath: .data.manifest
+    - apiVersion: tekton.dev/v1beta1
+      kind: ClusterTask
+      metadata:
+        name: $(workshop_namespace)-git-writer
+      spec:
+        description: |-
+          A task that writes a given set of files (provided as a json base64-encoded)
+          to git repository under a specific directory (`./config`).
+        params:
+          - name: git_repository
+            description: The repository path
+            type: string
+          - name: git_branch
+            description: The git branch to read and write
+            type: string
+            default: "main"
+          - name: git_user_email
+            description: User email address
+            type: string
+            default: "example@example.com"
+          - name: git_user_name
+            description: User name
+            type: string
+            default: "Example"
+          - name: git_commit_message
+            description: Message for the git commit
+            type: string
+            default: "New Commit"
+          - name: git_files
+            type: string
+            description: >
+              Base64-encoded json map of files to write to registry, for example -
+              eyAiUkVBRE1FLm1kIjogIiMgUmVhZG1lIiB9
+        steps:
+          - name: git-clone-and-push
+            image: paketobuildpacks/build:base
+            securityContext:
+              runAsUser: 0
+            workingDir: /root
+            script: |
+              #!/usr/bin/env bash
 
+              set -o errexit
+              set -o xtrace
+
+              git clone $(params.git_repository) ./repo
+              cd repo
+
+              git checkout -b $(params.git_branch) || git checkout $(params.git_branch)
+              git pull --rebase origin $(params.git_branch) || true
+
+              git config user.email $(params.git_user_email)
+              git config user.name $(params.git_user_name)
+
+              mkdir -p config && rm -rf config/*
+              cd config
+
+              echo '$(params.git_files)' | base64 --decode > files.json
+              eval "$(cat files.json | jq -r 'to_entries | .[] | @sh "mkdir -p $(dirname \(.key)) && echo \(.value) > \(.key) && git add \(.key)"')"
+
+              git commit -m "$(params.git_commit_message)"
+              git push origin $(params.git_branch)
+    - apiVersion: carto.run/v1alpha1
+      kind: ClusterRunTemplate
+      metadata:
+        name: $(workshop_namespace)-tekton-taskrun
+      spec:
+        template:
+          apiVersion: tekton.dev/v1beta1
+          kind: TaskRun
+          metadata:
+            generateName: $(runnable.metadata.name)$-
+            labels: $(runnable.metadata.labels)$
+          spec:
+            serviceAccountName: $(runnable.spec.inputs.serviceAccount)$
+            taskRef: $(runnable.spec.inputs.taskRef)$
+            params: $(runnable.spec.inputs.params)$
+    - apiVersion: carto.run/v1alpha1
+      kind: ClusterDelivery
+      metadata:
+        name: $(workshop_namespace)-gitops-delivery
+      spec:
+        selector:
+          app.tanzu.vmware.com/deliverable-type: osscon
+        resources:
+          - name: source-provider
+            templateRef:
+              kind: ClusterSourceTemplate
+              name: $(workshop_namespace)-gitops-source
+
+          - name: deployer
+            templateRef:
+              kind: ClusterDeploymentTemplate
+              name: $(workshop_namespace)-app-deploy
+            deployment:
+              resource: source-provider
+    - apiVersion: carto.run/v1alpha1
+      kind: ClusterDeploymentTemplate
+      metadata:
+        name: $(workshop_namespace)-app-deploy
+      spec:
+        observedCompletion:
+          succeeded:
+            key: '.status.conditions[?(@.type=="ReconcileSucceeded")].status'
+            value: 'True'
+          failed:
+            key: '.status.conditions[?(@.type=="ReconcileFailed")].status'
+            value: 'True'
+        template:
+          apiVersion: kappctrl.k14s.io/v1alpha1
+          kind: App
+          metadata:
+            name: $(deliverable.metadata.name)$
+          spec:
+            serviceAccountName: $(deliverable.spec.serviceAccountName)$
+            fetch:
+              - http:
+                  url: $(deployment.url)$
+            template:
+              - ytt:
+                  inline:
+                    paths:
+                      config.yaml: |
+                        apiVersion: kapp.k14s.io/v1alpha1
+                        kind: Config
+                        rebaseRules:
+                          - path:
+                              - metadata
+                              - annotations
+                              - serving.knative.dev/creator
+                            type: copy
+                            sources: [new, existing]
+                            resourceMatchers: &matchers
+                              - apiVersionKindMatcher:
+                                  apiVersion: serving.knative.dev/v1
+                                  kind: Service
+                          - path:
+                              - metadata
+                              - annotations
+                              - serving.knative.dev/lastModifier
+                            type: copy
+                            sources: [new, existing]
+                            resourceMatchers: *matchers
+            deploy:
+              - kapp: {}
+    - apiVersion: carto.run/v1alpha1
+      kind: ClusterSourceTemplate
+      metadata:
+        name: $(workshop_namespace)-gitops-source
+      spec:
+        urlPath: .status.artifact.url
+        revisionPath: .status.artifact.revision
+
+        template:
+          apiVersion: source.toolkit.fluxcd.io/v1beta1
+          kind: GitRepository
+          metadata:
+            name: $(deliverable.metadata.name)$
+          spec:
+            interval: 1m0s
+            url: $(deliverable.spec.source.git.url)$
+            ref: $(deliverable.spec.source.git.ref)$
+            gitImplementation: libgit2
+            ignore: ""
   session:
     env:
     - name: GITEA_DOMAIN
@@ -207,3 +376,46 @@ spec:
           deploy:
           - kapp:
               intoNs: $(session_namespace)
+      - apiVersion: carto.run/v1alpha1
+        kind: ClusterTemplate
+        metadata:
+          name: $(session_namespace)-git-writer
+        spec:
+          params:
+            - name: git_repository
+              default: placeholder
+            - name: git_branch
+              default: main
+            - name: git_user_name
+              default: supplychain
+            - name: git_user_email
+              default: supplychain@osscon.org
+            - name: git_commit_message
+              default: "Update from Cartographer"
+          template:
+            apiVersion: carto.run/v1alpha1
+            kind: Runnable
+            metadata:
+              name: $(workload.metadata.name)$-git-writer
+            spec:
+              serviceAccountName: default
+              runTemplateRef:
+                name: $(workshop_namespace)-tekton-taskrun
+              inputs:
+                serviceAccount: default
+                taskRef:
+                  kind: ClusterTask
+                  name: $(workshop_namespace)-git-writer
+                params:
+                  - name: git_repository
+                    value: $(params.git_repository)$
+                  - name: git_branch
+                    value: $(params.git_branch)$
+                  - name: git_user_name
+                    value: $(params.git_user_name)$
+                  - name: git_user_email
+                    value: $(params.git_user_email)$
+                  - name: git_commit_message
+                    value: $(params.git_commit_message)$
+                  - name: git_files
+                    value: $(config)$

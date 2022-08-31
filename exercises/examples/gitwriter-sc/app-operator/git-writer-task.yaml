@@ -17,7 +17,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: ClusterTask
 metadata:
-  name: osscon-git-writer
+  name: $WORKSHOP_NAMESPACE-git-writer
 spec:
   description: |-
     A task that writes a given set of files (provided as a json base64-encoded)

@@ -17,7 +17,7 @@
 apiVersion: carto.run/v1alpha1
 kind: ClusterTemplate
 metadata:
-  name: osscon-git-writer
+  name: ${SESSION_NAMESPACE}-git-writer
 spec:
   params:
     - name: git_repository
