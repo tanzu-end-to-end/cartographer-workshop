@@ -2,7 +2,7 @@
 set -x
 set +e
 
-function replace_env_vars() {
+replace_env_vars () {
   temp_filename = /tmp/$(basename $1)
   envsubst < $1 > $temp_filename && mv $temp_filename $1
 }
