@@ -7,6 +7,13 @@ replace_env_vars () {
   envsubst < $1 > $temp_filename && mv $temp_filename $1
 }
 
+# get user and password from secret, if it was used
+if [ "x${GITEA_ADMIN_SECRET}" != "x" ]; then
+  echo "Looking up user and password from secret ${GITEA_ADMIN_SECRET}"
+  GITEA_USER=$(kubectl get secret $GITEA_ADMIN_SECRET -o jsonpath='{.data.username}' | base64 -d)
+  GITEA_PASSWORD=$(kubectl get secret $GITEA_ADMIN_SECRET -o jsonpath='{.data.password}' | base64 -d)
+fi
+
 kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "learningcenter-registry-credentials"}]}'
 kubectl patch serviceaccount default -p '{"secrets": [{"name": "learningcenter-registry-credentials"}]}'
 
