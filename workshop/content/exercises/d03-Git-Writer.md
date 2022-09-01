@@ -73,7 +73,7 @@ text: |2
       - name: git-writer
         templateRef:
           kind: ClusterTemplate
-          name:  osscon-git-writer
+          name:  {{session_namespace}}-git-writer
         configs:
           - resource: config-provider
             name: data

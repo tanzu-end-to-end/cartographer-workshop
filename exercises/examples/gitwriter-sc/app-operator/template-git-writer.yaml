@@ -38,12 +38,12 @@ spec:
     spec:
       serviceAccountName: default
       runTemplateRef:
-        name: osscon-tekton-taskrun
+        name: ${WORKSHOP_NAMESPACE}-tekton-taskrun
       inputs:
         serviceAccount: default
         taskRef:
           kind: ClusterTask
-          name: osscon-git-writer
+          name: ${WORKSHOP_NAMESPACE}-git-writer
         params:
           - name: git_repository
             value: $(params.git_repository)$

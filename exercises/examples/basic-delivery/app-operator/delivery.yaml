@@ -20,7 +20,7 @@ metadata:
   name: $WORKSHOP_NAMESPACE-gitops-delivery
 spec:
   selector:
-    app.tanzu.vmware.com/deliverable-type: osscon
+    app.tanzu.vmware.com/deliverable-type: $WORKSHOP_NAMESPACE-deliverable
 
   #
   #

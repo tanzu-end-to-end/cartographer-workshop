@@ -54,11 +54,11 @@ file:  /home/eduk8s/exercises/deliverable.yaml
 text: "app.tanzu.vmware.com/deliverable-type:"
 ```
 
-The `deliverable-type` for our delivery is `osscon`
+The `deliverable-type` for our delivery is `{{workshop_namespace}}-deliverable`
 
 ```editor:replace-text-selection
 file:  /home/eduk8s/exercises/deliverable.yaml
-text: "app.tanzu.vmware.com/deliverable-type: osscon"
+text: "app.tanzu.vmware.com/deliverable-type: {{workshop_namespace}}-deliverable"
 ```
 
 The git info is parameterized, so we need to specify which GitOps repo we are consuming from.

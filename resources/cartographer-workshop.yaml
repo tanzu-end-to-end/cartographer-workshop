@@ -204,7 +204,7 @@ spec:
         name: $(workshop_namespace)-gitops-delivery
       spec:
         selector:
-          app.tanzu.vmware.com/deliverable-type: osscon
+          app.tanzu.vmware.com/deliverable-type: $(workshop_namespace)-deliverable
         resources:
           - name: source-provider
             templateRef:

@@ -50,7 +50,7 @@ text: |2
       - name: config-provider
         templateRef:
           kind: ClusterConfigTemplate
-          name:  osscon-app-config
+          name: {{workshop_namespace}}-app-config
         images:
           - resource: image-builder
             name: image

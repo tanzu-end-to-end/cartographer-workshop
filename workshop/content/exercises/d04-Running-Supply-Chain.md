@@ -4,11 +4,11 @@ The templates you just reviewed are already deployed to the cluster.
 You can verify this using the following commands.
 
 ```terminal:execute
-command: kubectl get clusterconfigtemplate osscon-app-config
+command: kubectl get clusterconfigtemplate {{workshop_namespace}}-app-config
 ```
 
 ```terminal:execute
-command: kubectl get clustertemplate osscon-git-writer 
+command: kubectl get clustertemplate {{session_namespace}}-git-writer 
 ```
 
 Let's go ahead and apply the definition for our updated supply chain.
