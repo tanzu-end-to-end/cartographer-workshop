@@ -18,7 +18,8 @@ kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "learnin
 kubectl patch serviceaccount default -p '{"secrets": [{"name": "learningcenter-registry-credentials"}]}'
 
 export SOURCE_REFERENCE="\${NEW_SOURCE}"
-for file in exercises/examples/basic-delivery/app-operator/*.yaml exercises/examples/gitwriter-sc/app-operator/*.yaml; do 
+
+for file in exercises/manual/image.yaml exercises/examples/basic-delivery/app-operator/*.yaml exercises/examples/gitwriter-sc/app-operator/*.yaml; do 
   replace_env_vars $file 
 done
 
