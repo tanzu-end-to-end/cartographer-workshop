@@ -1,5 +1,3 @@
-![img.png](exercises/images/osscon.png)
-
 ##### Introduction to Supply Chain Choreography with Cartographer
 
 with [Cora Iberkleid](https://twitter.com/ciberkleid) and [Corby Page](https://www.linkedin.com/in/corby/)
