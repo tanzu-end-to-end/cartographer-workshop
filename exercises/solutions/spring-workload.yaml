@@ -1,0 +1,13 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: spring
+  labels:
+    app.tanzu.vmware.com/workload-type: web-$SESSION_NAMESPACE
+spec:
+  serviceAccountName: default
+  source:
+    git:
+      url: https://github.com/vmware-tanzu/application-accelerator-samples/tree/main/tanzu-java-web-app
+      ref:
+        branch: main

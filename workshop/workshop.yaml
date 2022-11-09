@@ -15,6 +15,7 @@ modules:
     - exercises/c04-Supply-Chain
     - exercises/c05-Applying-Templates
     - exercises/c06-Workload
+    - exercises/c07-Spring-Workload
     - exercises/d01-Improving-Supply-Chain
     - exercises/d02-Storing-Config
     - exercises/d03-Git-Writer

@@ -38,6 +38,9 @@ modules:
     exercises/c06-Workload:
         name: "Templates: Workload"
         exit_sign: Next
+    exercises/c07-Spring-Workload:
+        name: "Templates: Spring Workload"
+        exit_sign: Next
     exercises/d01-Improving-Supply-Chain:
         name: Improving the Supply Chain
         exit_sign: Next
