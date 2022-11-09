@@ -5,12 +5,12 @@
 Recall the Workload definition you created earlier now we are just going to using the same one, just point it to a different project. A springboot application in this example.
 
 ```editor:open-file
-file: /home/eduk8s/exercises/spring-workload.yaml
+file: /home/eduk8s/exercises/solutions/spring-workload.yaml
 ```
 
 Go ahead and apply the Workload.
 ```terminal:execute
-command: kubectl apply -f /home/eduk8s/exercises/spring-workload.yaml
+command: kubectl apply -f /home/eduk8s/exercises/solutions/spring-workload.yaml
 ```
 
 ###### Track Progress
