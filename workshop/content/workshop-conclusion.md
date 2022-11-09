@@ -1,4 +1,4 @@
-![img.png](exercises/images/osscon.png)
+
 
 Congratulations! Now that you understand the fundamentals of constructing supply chains, you will be ready to explore more advanced use cases that may be appropriate for your environment:
 
