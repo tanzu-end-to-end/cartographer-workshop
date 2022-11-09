@@ -7,3 +7,4 @@ envsubst < exercises/solutions/image.yaml > /tmp/image.yaml && mv /tmp/image.yam
 envsubst < exercises/solutions/app-deploy.yaml > /tmp/app-deploy.yaml && mv /tmp/app-deploy.yaml exercises/solutions/app-deploy.yaml
 envsubst < exercises/solutions/supply-chain.yaml > /tmp/supply-chain.yaml && mv /tmp/supply-chain.yaml exercises/solutions/supply-chain.yaml
 envsubst < exercises/solutions/workload.yaml > /tmp/workload.yaml && mv /tmp/workload.yaml exercises/solutions/workload.yaml
+envsubst < exercises/solutions/spring-workload.yaml > /tmp/spring-workload.yaml && mv /tmp/spring-workload.yaml exercises/solutions/spring-workload.yaml
